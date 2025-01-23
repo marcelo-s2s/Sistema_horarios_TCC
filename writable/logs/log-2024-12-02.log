@@ -1,0 +1,239 @@
+DEBUG - 2024-12-02 15:28:30 --> {"allDay":false,"title":"Biologia","start":"2024-11-21T03:00:00-03:00","end":"2024-11-21T09:00:00-03:00","id":"3","backgroundColor":"#00B800","borderColor":"#00B800","extendedProps":{"id_disciplina":"3","professor":"Sem professor","sala":"Sem sala"}}
+DEBUG - 2024-12-02 15:29:16 --> {"conflito":true,"tipo":"professor","mensagem":"O professor j\u00e1 possui um evento nesse hor\u00e1rio."}
+DEBUG - 2024-12-02 15:30:55 --> {"conflito":true,"tipo":"professor","mensagem":"O professor j\u00e1 possui um evento nesse hor\u00e1rio."}
+DEBUG - 2024-12-02 15:37:11 --> {"conflito":true,"tipo":"professor","mensagem":"O professor j\u00e1 possui um evento nesse hor\u00e1rio."}
+DEBUG - 2024-12-02 15:41:03 --> {"conflito":true,"tipo":"professor","mensagem":"O professor j\u00e1 possui um evento nesse hor\u00e1rio."}
+DEBUG - 2024-12-02 15:41:07 --> {"conflito":true,"tipo":"professor","mensagem":"O professor j\u00e1 possui um evento nesse hor\u00e1rio."}
+DEBUG - 2024-12-02 15:42:17 --> {"conflito":true,"tipo":"professor","mensagem":"O professor j\u00e1 possui um evento nesse hor\u00e1rio."}
+DEBUG - 2024-12-02 15:55:43 --> {"allDay":false,"title":"Ingl\u00eas","start":"2024-11-20T02:00:00-03:00","end":"2024-11-20T04:00:00-03:00","id":"9","backgroundColor":"#FFBCC5","borderColor":"#FFBCC5","extendedProps":{"id_disciplina":"9","professor":"Sem professor","sala":"1"}}
+DEBUG - 2024-12-02 18:32:40 --> {"allDay":false,"title":"Matem\u00e1tica","start":"2024-11-20T03:00:00-03:00","end":"2024-11-20T08:00:00-03:00","id":"2","backgroundColor":"#E12120","borderColor":"#E12120","extendedProps":{"id_disciplina":"2","professor":"Sem professor","sala":"Sem sala"}}
+DEBUG - 2024-12-02 18:32:59 --> {"allDay":false,"title":"Matem\u00e1tica","start":"2024-11-20T03:00:00-03:00","end":"2024-11-20T08:00:00-03:00","id":"2","backgroundColor":"#E12120","borderColor":"#E12120","extendedProps":{"id_disciplina":"2","professor":"6","sala":"1"}}
+DEBUG - 2024-12-02 18:34:38 --> {"allDay":false,"title":"Biologia","start":"2024-11-21T03:00:00-03:00","end":"2024-11-21T09:00:00-03:00","id":"3","backgroundColor":"#00B800","borderColor":"#00B800","extendedProps":{"id_disciplina":"3","professor":"6","sala":"Sem sala"}}
+DEBUG - 2024-12-02 18:37:37 --> {"allDay":false,"title":"Biologia","start":"2024-11-19T03:00:00-03:00","end":"2024-11-19T09:00:00-03:00","id":"3","backgroundColor":"#00B800","borderColor":"#00B800","extendedProps":{"id_disciplina":"3","professor":"6","sala":"Sem sala"}}
+CRITICAL - 2024-12-02 18:37:37 --> ErrorException: Undefined array key "professor"
+[Method: POST, Route: horario-aula/verificar-conflitos]
+in APPPATH\Controllers\HorarioAula.php on line 41.
+ 1 APPPATH\Controllers\HorarioAula.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "professor"', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Controllers\\HorarioAula.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->verificarConflitos()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+DEBUG - 2024-12-02 18:38:05 --> {"allDay":false,"title":"Biologia","start":"2024-11-19T03:00:00-03:00","end":"2024-11-19T09:00:00-03:00","id":"3","backgroundColor":"#00B800","borderColor":"#00B800","extendedProps":{"id_disciplina":"3","professor":"7","sala":"1"}}
+CRITICAL - 2024-12-02 18:38:05 --> ErrorException: Undefined array key "professor"
+[Method: POST, Route: horario-aula/verificar-conflitos]
+in APPPATH\Controllers\HorarioAula.php on line 41.
+ 1 APPPATH\Controllers\HorarioAula.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "professor"', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Controllers\\HorarioAula.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->verificarConflitos()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+DEBUG - 2024-12-02 18:40:32 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":3,"horario_fim":9,"professor":"6"}
+DEBUG - 2024-12-02 18:45:49 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":3,"horario_fim":8,"professor":"6"}
+DEBUG - 2024-12-02 18:45:58 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":8,"professor":"5"}
+DEBUG - 2024-12-02 18:46:40 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":3,"horario_fim":8,"professor":"7"}
+DEBUG - 2024-12-02 18:46:43 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":3,"horario_fim":8,"professor":"5"}
+DEBUG - 2024-12-02 18:46:59 --> {"id_sala":"Sem sala","dia_semana":5,"horario_inicio":3,"horario_fim":8,"professor":"7"}
+DEBUG - 2024-12-02 18:47:03 --> {"id_sala":"Sem sala","dia_semana":5,"horario_inicio":3,"horario_fim":8,"professor":"5"}
+DEBUG - 2024-12-02 18:49:10 --> {"id_sala":"3","dia_semana":3,"horario_inicio":2,"horario_fim":4,"professor":"5"}
+DEBUG - 2024-12-02 18:49:14 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 18:50:35 --> {"id_sala":"3","dia_semana":3,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 18:50:50 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 19:00:21 --> {"id_sala":"1","dia_semana":4,"horario_inicio":3,"horario_fim":5,"professor":"5"}
+DEBUG - 2024-12-02 19:00:52 --> {"id_sala":"1","dia_semana":4,"horario_inicio":3,"horario_fim":5,"professor":"5"}
+DEBUG - 2024-12-02 19:01:48 --> {"id_sala":"1","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 19:01:54 --> {"id_sala":"1","dia_semana":4,"horario_inicio":5,"horario_fim":7,"professor":"5"}
+DEBUG - 2024-12-02 19:01:58 --> {"id_sala":"1","dia_semana":4,"horario_inicio":7,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:02:02 --> {"id_sala":"1","dia_semana":4,"horario_inicio":10,"horario_fim":12,"professor":"5"}
+DEBUG - 2024-12-02 19:02:15 --> {"id_sala":"1","dia_semana":4,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 19:02:34 --> {"id_sala":"1","dia_semana":3,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 19:03:31 --> {"id_sala":"3","dia_semana":4,"horario_inicio":3,"horario_fim":5,"professor":"5"}
+DEBUG - 2024-12-02 19:03:34 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 19:03:46 --> {"id_sala":"3","dia_semana":4,"horario_inicio":6,"horario_fim":8,"professor":"5"}
+DEBUG - 2024-12-02 19:03:51 --> {"id_sala":"3","dia_semana":4,"horario_inicio":8,"horario_fim":10,"professor":"5"}
+DEBUG - 2024-12-02 19:03:54 --> {"id_sala":"3","dia_semana":4,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 19:09:40 --> {"id_sala":"3","dia_semana":4,"horario_inicio":3,"horario_fim":5,"professor":"6"}
+DEBUG - 2024-12-02 19:09:43 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"6"}
+DEBUG - 2024-12-02 19:09:51 --> {"id_sala":"3","dia_semana":4,"horario_inicio":10,"horario_fim":12,"professor":"6"}
+DEBUG - 2024-12-02 19:11:56 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"6"}
+DEBUG - 2024-12-02 19:12:00 --> {"id_sala":"3","dia_semana":4,"horario_inicio":6,"horario_fim":8,"professor":"6"}
+DEBUG - 2024-12-02 19:12:04 --> {"id_sala":"3","dia_semana":4,"horario_inicio":9,"horario_fim":11,"professor":"6"}
+DEBUG - 2024-12-02 19:12:25 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"6"}
+DEBUG - 2024-12-02 19:12:29 --> {"id_sala":"3","dia_semana":4,"horario_inicio":5,"horario_fim":7,"professor":"6"}
+DEBUG - 2024-12-02 19:12:31 --> {"id_sala":"3","dia_semana":4,"horario_inicio":9,"horario_fim":11,"professor":"6"}
+DEBUG - 2024-12-02 19:13:00 --> {"id_sala":"1","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 19:13:02 --> {"id_sala":"1","dia_semana":4,"horario_inicio":5,"horario_fim":7,"professor":"5"}
+DEBUG - 2024-12-02 19:13:05 --> {"id_sala":"1","dia_semana":4,"horario_inicio":8,"horario_fim":10,"professor":"5"}
+DEBUG - 2024-12-02 19:13:08 --> {"id_sala":"1","dia_semana":3,"horario_inicio":7,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:13:10 --> {"id_sala":"1","dia_semana":2,"horario_inicio":7,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:13:14 --> {"id_sala":"1","dia_semana":1,"horario_inicio":1,"horario_fim":3,"professor":"5"}
+DEBUG - 2024-12-02 19:13:17 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 19:13:21 --> {"id_sala":"1","dia_semana":3,"horario_inicio":9,"horario_fim":11,"professor":"5"}
+DEBUG - 2024-12-02 19:13:23 --> {"id_sala":"1","dia_semana":5,"horario_inicio":9,"horario_fim":11,"professor":"5"}
+DEBUG - 2024-12-02 19:13:25 --> {"id_sala":"1","dia_semana":4,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 19:13:28 --> {"id_sala":"1","dia_semana":3,"horario_inicio":2,"horario_fim":4,"professor":"5"}
+DEBUG - 2024-12-02 19:13:30 --> {"id_sala":"1","dia_semana":2,"horario_inicio":5,"horario_fim":7,"professor":"5"}
+DEBUG - 2024-12-02 19:20:09 --> {"id_sala":"1","dia_semana":3,"horario_inicio":5,"horario_fim":7,"professor":"5"}
+DEBUG - 2024-12-02 19:20:42 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"6"}
+DEBUG - 2024-12-02 19:20:50 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:20:53 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"6"}
+DEBUG - 2024-12-02 19:20:59 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"7"}
+DEBUG - 2024-12-02 19:22:11 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:22:39 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:22:46 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"6"}
+DEBUG - 2024-12-02 19:23:37 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"6"}
+DEBUG - 2024-12-02 19:24:13 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:24:17 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"6"}
+DEBUG - 2024-12-02 19:25:19 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:25:23 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"6"}
+DEBUG - 2024-12-02 19:25:41 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 19:25:45 --> {"id_sala":"Sem sala","dia_semana":2,"horario_inicio":3,"horario_fim":9,"professor":"6"}
+DEBUG - 2024-12-02 19:27:17 --> {"id_sala":"1","dia_semana":3,"horario_inicio":3,"horario_fim":9,"professor":"Sem professor"}
+DEBUG - 2024-12-02 19:27:41 --> {"id_sala":"1","dia_semana":6,"horario_inicio":5,"horario_fim":7,"professor":"Sem professor"}
+DEBUG - 2024-12-02 19:27:46 --> {"id_sala":"1","dia_semana":6,"horario_inicio":5,"horario_fim":7,"professor":"5"}
+DEBUG - 2024-12-02 19:29:02 --> {"id_sala":"1","dia_semana":5,"horario_inicio":5,"horario_fim":7,"professor":"5"}
+DEBUG - 2024-12-02 19:29:18 --> {"id_sala":"1","dia_semana":5,"horario_inicio":5,"horario_fim":7,"professor":"5"}
+DEBUG - 2024-12-02 19:29:26 --> {"id_sala":"1","dia_semana":6,"horario_inicio":5,"horario_fim":7,"professor":"7"}
+DEBUG - 2024-12-02 19:29:31 --> {"id_sala":"1","dia_semana":6,"horario_inicio":5,"horario_fim":7,"professor":"6"}
+DEBUG - 2024-12-02 19:29:34 --> {"id_sala":"1","dia_semana":5,"horario_inicio":5,"horario_fim":7,"professor":"6"}
+DEBUG - 2024-12-02 19:57:48 --> {"id_sala":"3","dia_semana":3,"horario_inicio":3,"horario_fim":5,"professor":"Sem professor"}
+DEBUG - 2024-12-02 21:37:00 --> {"id_sala":"1","dia_semana":4,"horario_inicio":3,"horario_fim":9,"professor":"Sem professor"}
+DEBUG - 2024-12-02 21:37:03 --> {"id_sala":"3","dia_semana":4,"horario_inicio":3,"horario_fim":9,"professor":"Sem professor"}
+DEBUG - 2024-12-02 21:37:06 --> {"id_sala":"Sem sala","dia_semana":1,"horario_inicio":5,"horario_fim":11,"professor":"Sem professor"}
+DEBUG - 2024-12-02 21:37:09 --> {"id_sala":"1","dia_semana":1,"horario_inicio":5,"horario_fim":11,"professor":"Sem professor"}
+DEBUG - 2024-12-02 21:37:12 --> {"id_sala":"3","dia_semana":1,"horario_inicio":5,"horario_fim":11,"professor":"Sem professor"}
+DEBUG - 2024-12-02 21:37:15 --> {"id_sala":"3","dia_semana":1,"horario_inicio":5,"horario_fim":11,"professor":"6"}
+DEBUG - 2024-12-02 21:37:18 --> {"id_sala":"3","dia_semana":1,"horario_inicio":5,"horario_fim":11,"professor":"5"}
+DEBUG - 2024-12-02 22:10:02 --> {"id_sala":"1","dia_semana":6,"horario_inicio":3,"horario_fim":8,"professor":"Sem professor"}
+DEBUG - 2024-12-02 22:10:04 --> {"id_sala":"1","dia_semana":6,"horario_inicio":3,"horario_fim":8,"professor":"6"}
+DEBUG - 2024-12-02 22:12:42 --> {"id_sala":"1","dia_semana":6,"horario_inicio":8,"horario_fim":13,"professor":"Sem professor"}
+DEBUG - 2024-12-02 22:12:44 --> {"id_sala":"1","dia_semana":6,"horario_inicio":8,"horario_fim":13,"professor":"6"}
+DEBUG - 2024-12-02 22:14:13 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"Sem professor"}
+DEBUG - 2024-12-02 22:14:18 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 22:14:22 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 22:14:25 --> {"id_sala":"1","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 22:14:51 --> {"id_sala":"3","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 22:14:55 --> {"id_sala":"1","dia_semana":4,"horario_inicio":4,"horario_fim":6,"professor":"5"}
+DEBUG - 2024-12-02 22:15:00 --> {"id_sala":"Sem sala","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 22:15:03 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":11,"horario_fim":13,"professor":"Sem professor"}
+DEBUG - 2024-12-02 22:15:08 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 22:15:10 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"6"}
+ERROR - 2024-12-02 22:16:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_sala` FOREIGN KEY (`id_sala`) REFERENCES `sala` (`id_sala`) ON DELETE NO ACTION ON UPDATE NO ACTION) in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `ho...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ho...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ho...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ho...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\HorarioAula.php(143): CodeIgniter\BaseModel->save(Array)
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-12-02 22:16:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_sala` FOREIGN KEY (`id_sala`) REFERENCES `sala` (`id_sala`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[Method: POST, Route: horario-aula/salvar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario_inicio`, `horario_fim`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario_inicio:, :horario_fim:, :cor:, :professor:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\HorarioAula.php(143): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-12-02 22:16:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_sala` FOREIGN KEY (`id_sala`) REFERENCES `sala` (`id_sala`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario_inicio`, `horario_fim`, `cor`, `professor`) VALUES (\'20241202221640\', \'Sem sala\', \'hfuowh\', \'ativo\', \'\', \'9\', 4, 5, 7, \'#FFBCC5\', \'Sem professor\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario_inicio`, `horario_fim`, `cor`, `professor`) VALUES (\'20241202221640\', \'Sem sala\', \'hfuowh\', \'ativo\', \'\', \'9\', 4, 5, 7, \'#FFBCC5\', \'Sem professor\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario_inicio`, `horario_fim`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario_inicio:, :horario_fim:, :cor:, :professor:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\HorarioAula.php(143): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-12-02 22:16:40 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_sala` FOREIGN KEY (`id_sala`) REFERENCES `sala` (`id_sala`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario_inicio`, `horario_fim`, `cor`, `professor`) VALUES (\'20241202221640\', \'Sem sala\', \'hfuowh\', \'ativo\', \'\', \'9\', 4, 5, 7, \'#FFBCC5\', \'Sem professor\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario_inicio`, `horario_fim`, `cor`, `professor`) VALUES (\'20241202221640\', \'Sem sala\', \'hfuowh\', \'ativo\', \'\', \'9\', 4, 5, 7, \'#FFBCC5\', \'Sem professor\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario_inicio`, `horario_fim`, `cor`, `professor`) VALUES (\'20241202221640\', \'Sem sala\', \'hfuowh\', \'ativo\', \'\', \'9\', 4, 5, 7, \'#FFBCC5\', \'Sem professor\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario_inicio`, `horario_fim`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario_inicio:, :horario_fim:, :cor:, :professor:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\HorarioAula.php(143): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+DEBUG - 2024-12-02 22:19:22 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"Sem professor"}
+DEBUG - 2024-12-02 22:19:26 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 22:19:31 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 22:19:34 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 22:19:46 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 22:19:49 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 22:22:12 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"6"}
+DEBUG - 2024-12-02 23:41:17 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:41:20 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 23:41:31 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 23:41:34 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"6"}
+DEBUG - 2024-12-02 23:44:00 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:44:04 --> {"id_sala":"1","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"6"}
+DEBUG - 2024-12-02 23:44:12 --> {"id_sala":"3","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"6"}
+DEBUG - 2024-12-02 23:44:20 --> {"id_sala":"3","dia_semana":1,"horario_inicio":11,"horario_fim":13,"professor":"7"}
+DEBUG - 2024-12-02 23:44:20 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":11,"horario_fim":13,"professor":"7"}
+DEBUG - 2024-12-02 23:44:25 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":10,"horario_fim":12,"professor":"7"}
+DEBUG - 2024-12-02 23:44:33 --> {"id_sala":"3","dia_semana":1,"horario_inicio":10,"horario_fim":12,"professor":"7"}
+DEBUG - 2024-12-02 23:44:37 --> {"id_sala":"3","dia_semana":2,"horario_inicio":10,"horario_fim":12,"professor":"7"}
+DEBUG - 2024-12-02 23:44:43 --> {"id_sala":"1","dia_semana":2,"horario_inicio":10,"horario_fim":13,"professor":"7"}
+DEBUG - 2024-12-02 23:44:49 --> {"id_sala":"1","dia_semana":2,"horario_inicio":10,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 23:44:49 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":10,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 23:44:53 --> {"id_sala":"1","dia_semana":2,"horario_inicio":10,"horario_fim":13,"professor":"7"}
+DEBUG - 2024-12-02 23:44:53 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":10,"horario_fim":13,"professor":"7"}
+DEBUG - 2024-12-02 23:53:31 --> {"id_sala":"1","dia_semana":1,"horario_inicio":7,"horario_fim":13,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:53:36 --> {"id_sala":"1","dia_semana":1,"horario_inicio":7,"horario_fim":13,"professor":"6"}
+DEBUG - 2024-12-02 23:53:46 --> {"id_sala":"3","dia_semana":5,"horario_inicio":7,"horario_fim":13,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:53:50 --> {"id_sala":"3","dia_semana":5,"horario_inicio":7,"horario_fim":13,"professor":"5"}
+DEBUG - 2024-12-02 23:53:56 --> {"id_sala":"3","dia_semana":4,"horario_inicio":3,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 23:54:37 --> {"id_sala":"3","dia_semana":2,"horario_inicio":4,"horario_fim":9,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:54:39 --> {"id_sala":"3","dia_semana":2,"horario_inicio":4,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 23:56:30 --> {"id_sala":"3","dia_semana":3,"horario_inicio":4,"horario_fim":9,"professor":"5"}
+DEBUG - 2024-12-02 23:56:34 --> "entrou"
+DEBUG - 2024-12-02 23:57:05 --> {"id_sala":"3","dia_semana":6,"horario_inicio":5,"horario_fim":10,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:57:08 --> {"id_sala":"3","dia_semana":6,"horario_inicio":5,"horario_fim":10,"professor":"5"}
+DEBUG - 2024-12-02 23:57:11 --> {"id_sala":"3","dia_semana":6,"horario_inicio":5,"horario_fim":10,"professor":"6"}
+DEBUG - 2024-12-02 23:57:17 --> "entrou"
+DEBUG - 2024-12-02 23:58:23 --> {"id_sala":"Sem sala","dia_semana":3,"horario_inicio":6,"horario_fim":8,"professor":"5"}
+DEBUG - 2024-12-02 23:58:28 --> {"id_sala":"1","dia_semana":3,"horario_inicio":6,"horario_fim":8,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:58:35 --> {"id_sala":"1","dia_semana":3,"horario_inicio":6,"horario_fim":11,"professor":"5"}
+DEBUG - 2024-12-02 23:59:39 --> {"id_sala":"Sem sala","dia_semana":4,"horario_inicio":8,"horario_fim":10,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:59:44 --> {"id_sala":"1","dia_semana":4,"horario_inicio":8,"horario_fim":10,"professor":"Sem professor"}
+DEBUG - 2024-12-02 23:59:47 --> {"id_sala":"1","dia_semana":4,"horario_inicio":8,"horario_fim":10,"professor":"6"}
+DEBUG - 2024-12-02 23:59:54 --> {"id_sala":"1","dia_semana":6,"horario_inicio":3,"horario_fim":5,"professor":"6"}

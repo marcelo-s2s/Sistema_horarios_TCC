@@ -1,0 +1,710 @@
+INFO - 2024-11-23 00:41:35 --> Evento recebido: {"id_sala":"1","codigo_turma":"geg","status":"ativo","periodo_letivo":"333","id_disciplina":"3","dia_semana":"1","horario":"01","cor":"#00B800","professor":"1"}
+INFO - 2024-11-23 00:41:35 --> Evento recebido: {"id_sala":"1","codigo_turma":"geg","status":"ativo","periodo_letivo":"333","id_disciplina":"1","dia_semana":"5","horario":"03","cor":"#06B1C4","professor":"1"}
+INFO - 2024-11-23 01:22:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:22:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:22:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:23:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:23:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-23 01:23:08 --> ErrorException: Undefined variable $professores
+[Method: GET, Route: horario-aula]
+in APPPATH\Views\horario_aula.php on line 143.
+ 1 APPPATH\Views\horario_aula.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $professores', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\horario_aula.php', 143)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\horario_aula.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('horario_aula', [], true)
+ 5 APPPATH\Controllers\HorarioAula.php(36): view('horario_aula', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->horarioAula()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 01:23:17 --> ErrorException: Undefined array key "codigo_professor"
+[Method: GET, Route: horario-aula]
+in APPPATH\Views\horario_aula.php on line 144.
+ 1 APPPATH\Views\horario_aula.php(144): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "codigo_professor"', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\horario_aula.php', 144)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\horario_aula.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('horario_aula', [], true)
+ 5 APPPATH\Controllers\HorarioAula.php(40): view('horario_aula', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->horarioAula()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+INFO - 2024-11-23 01:38:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:41:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-23 01:41:35 --> ErrorException: Undefined variable $disciplina
+[Method: GET, Route: disciplina]
+in APPPATH\Views\disciplina.php on line 117.
+ 1 APPPATH\Views\disciplina.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $disciplina', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\disciplina.php', 117)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\disciplina.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('disciplina', [], true)
+ 5 APPPATH\Controllers\Disciplina.php(27): view('disciplina', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->listarDisciplina()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+INFO - 2024-11-23 01:42:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:42:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:42:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:42:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:42:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:44:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:47:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:47:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:48:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:49:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:49:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:49:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:49:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:49:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:49:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:51:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:51:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:51:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:51:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 01:51:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-23 02:13:58 --> mysqli_sql_exception: Column 'id_disciplina' cannot be null in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `ho...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ho...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ho...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ho...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save(Array)
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-11-23 02:13:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_disciplina' cannot be null
+[Method: POST, Route: horario-aula/salvar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:13:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_disciplina' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021358\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021358\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:13:58 --> [Caused by] mysqli_sql_exception: Column 'id_disciplina' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021358\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021358\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021358\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+ERROR - 2024-11-23 02:14:35 --> mysqli_sql_exception: Column 'id_disciplina' cannot be null in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `ho...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ho...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ho...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ho...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save(Array)
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-11-23 02:14:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_disciplina' cannot be null
+[Method: POST, Route: horario-aula/salvar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:14:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_disciplina' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021435\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021435\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:14:35 --> [Caused by] mysqli_sql_exception: Column 'id_disciplina' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021435\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021435\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021435\', \'1\', \'110A\', \'ativo\', \'3\', NULL, \'2\', \'04\', \'8FFE09\', \'5\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+ERROR - 2024-11-23 02:15:54 --> mysqli_sql_exception: Column 'id_disciplina' cannot be null in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `ho...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ho...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ho...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ho...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save(Array)
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-11-23 02:15:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_disciplina' cannot be null
+[Method: POST, Route: horario-aula/salvar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:15:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_disciplina' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021554\', \'1\', \'110A\', \'ativo\', \'55\', NULL, \'4\', \'04\', \'8FFE09\', \'5\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021554\', \'1\', \'110A\', \'ativo\', \'55\', NULL, \'4\', \'04\', \'8FFE09\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:15:54 --> [Caused by] mysqli_sql_exception: Column 'id_disciplina' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021554\', \'1\', \'110A\', \'ativo\', \'55\', NULL, \'4\', \'04\', \'8FFE09\', \'5\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021554\', \'1\', \'110A\', \'ativo\', \'55\', NULL, \'4\', \'04\', \'8FFE09\', \'5\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123021554\', \'1\', \'110A\', \'ativo\', \'55\', NULL, \'4\', \'04\', \'8FFE09\', \'5\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\HorarioAula.php(61): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+INFO - 2024-11-23 02:17:22 --> Evento recebido: {"id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"","id_disciplina":"9","dia_semana":"2","horario":"03","cor":"#FFBCC5","professor":"1"}
+INFO - 2024-11-23 02:17:22 --> Evento recebido: {"id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"","id_disciplina":"2","dia_semana":"4","horario":"05","cor":"#E12120","professor":"1"}
+INFO - 2024-11-23 02:20:05 --> Evento recebido: {"id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"88","id_disciplina":"3","dia_semana":"3","horario":"04","cor":"#00B800","professor":"1"}
+INFO - 2024-11-23 02:20:05 --> Evento recebido: {"id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"88","id_disciplina":"1","dia_semana":"5","horario":"05","cor":"#06B1C4","professor":"1"}
+INFO - 2024-11-23 02:21:52 --> Evento recebido: {"id_horario_aula":"20241123022152","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"22","id_disciplina":null,"dia_semana":"2","horario":"05","cor":"8FFE09","professor":"5"}
+INFO - 2024-11-23 02:21:52 --> Evento recebido: {"id_horario_aula":"20241123022152","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"22","id_disciplina":"3","dia_semana":"4","horario":"05","cor":"#00B800","professor":"5"}
+INFO - 2024-11-23 02:21:52 --> Evento recebido: {"id_horario_aula":"20241123022152","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"22","id_disciplina":"2","dia_semana":"6","horario":"06","cor":"#E12120","professor":"5"}
+INFO - 2024-11-23 02:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 02:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-23 02:23:47 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_disciplina` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION) in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `di...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `di...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `di...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `di...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\Disciplina.php(70): CodeIgniter\BaseModel->delete(Array)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\Disciplina->deletarDisciplina('1')
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-23 02:23:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_disciplina` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[Method: GET, Route: disciplina/deletar/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN :id_disciplina:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Disciplina.php(70): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->deletarDisciplina('1')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:23:47 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_disciplina` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN :id_disciplina:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Disciplina.php(70): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->deletarDisciplina('1')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:23:47 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_disciplina` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN :id_disciplina:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Disciplina.php(70): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->deletarDisciplina('1')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+INFO - 2024-11-23 02:24:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 02:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 02:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-23 02:24:39 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_disciplina` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION) in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `di...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `di...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `di...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `di...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\Disciplina.php(70): CodeIgniter\BaseModel->delete(Array)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\Disciplina->deletarDisciplina('1')
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-23 02:24:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_disciplina` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[Method: GET, Route: disciplina/deletar/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN :id_disciplina:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Disciplina.php(70): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->deletarDisciplina('1')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:24:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_disciplina` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN :id_disciplina:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Disciplina.php(70): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->deletarDisciplina('1')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 02:24:39 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_disciplina` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `disciplina`
+WHERE `id_disciplina` IN :id_disciplina:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Disciplina.php(70): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->deletarDisciplina('1')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+INFO - 2024-11-23 02:25:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 02:25:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 02:25:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 02:25:54 --> Evento recebido: {"id_horario_aula":"20241123022554","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"888","id_disciplina":"2","dia_semana":"1","horario":"05","cor":"#E12120","professor":"5"}
+INFO - 2024-11-23 02:25:54 --> Evento recebido: {"id_horario_aula":"20241123022554","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"888","id_disciplina":"3","dia_semana":"2","horario":"04","cor":"#00B800","professor":"5"}
+INFO - 2024-11-23 02:25:54 --> Evento recebido: {"id_horario_aula":"20241123022554","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"888","id_disciplina":"9","dia_semana":"3","horario":"04","cor":"#FFBCC5","professor":"5"}
+INFO - 2024-11-23 02:25:54 --> Evento recebido: {"id_horario_aula":"20241123022554","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"888","id_disciplina":"13","dia_semana":"4","horario":"05","cor":"#E56E24","professor":"5"}
+INFO - 2024-11-23 02:25:54 --> Evento recebido: {"id_horario_aula":"20241123022554","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"888","id_disciplina":null,"dia_semana":"5","horario":"06","cor":"8FFE09","professor":"5"}
+INFO - 2024-11-23 02:27:33 --> Evento recebido: {"id_horario_aula":"20241123022733","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"10","dia_semana":"6","horario":"02","cor":"#74a0e7","professor":"5"}
+INFO - 2024-11-23 02:27:33 --> Evento recebido: {"id_horario_aula":"20241123022733","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"13","dia_semana":"5","horario":"03","cor":"#E56E24","professor":"5"}
+INFO - 2024-11-23 02:27:33 --> Evento recebido: {"id_horario_aula":"20241123022733","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"3","dia_semana":"4","horario":"02","cor":"#00B800","professor":"5"}
+INFO - 2024-11-23 02:27:33 --> Evento recebido: {"id_horario_aula":"20241123022733","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"2","dia_semana":"3","horario":"05","cor":"#E12120","professor":"5"}
+INFO - 2024-11-23 02:27:33 --> Evento recebido: {"id_horario_aula":"20241123022733","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"13","dia_semana":"2","horario":"05","cor":"#E56E24","professor":"5"}
+INFO - 2024-11-23 02:28:17 --> Evento recebido: {"id_horario_aula":"20241123022817","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"3","dia_semana":"1","horario":"03","cor":"#00B800","professor":"5"}
+INFO - 2024-11-23 02:28:17 --> Evento recebido: {"id_horario_aula":"20241123022817","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"2","dia_semana":"2","horario":"04","cor":"#E12120","professor":"5"}
+INFO - 2024-11-23 02:28:17 --> Evento recebido: {"id_horario_aula":"20241123022817","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"10","dia_semana":"4","horario":"06","cor":"#74a0e7","professor":"5"}
+INFO - 2024-11-23 02:28:17 --> Evento recebido: {"id_horario_aula":"20241123022817","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"13","dia_semana":"5","horario":"07","cor":"#E56E24","professor":"5"}
+INFO - 2024-11-23 02:28:17 --> Evento recebido: {"id_horario_aula":"20241123022817","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"111","id_disciplina":"13","dia_semana":"6","horario":"02","cor":"#E56E24","professor":"5"}
+INFO - 2024-11-23 02:29:18 --> Evento recebido: {"id_horario_aula":"20241123022918","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"12","id_disciplina":"9","dia_semana":"4","horario":"04","cor":"#FFBCC5","professor":"5"}
+INFO - 2024-11-23 02:29:58 --> Evento recebido: {"id_horario_aula":"20241123022958","id_sala":"1","codigo_turma":"110A","status":"ativo","periodo_letivo":"9","id_disciplina":"3","dia_semana":"2","horario":"03","cor":"#00B800","professor":"5"}
+CRITICAL - 2024-11-23 14:45:35 --> ErrorException: Undefined variable $turmas
+[Method: GET, Route: lista-horario-aula]
+in APPPATH\Views\lista_horario_aula.php on line 82.
+ 1 APPPATH\Views\lista_horario_aula.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $turmas', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\lista_horario_aula.php', 82)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\lista_horario_aula.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('lista_horario_aula', [], true)
+ 5 APPPATH\Controllers\HorarioAula.php(37): view('lista_horario_aula', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->listaHorarioAula()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+ERROR - 2024-11-23 19:57:52 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_usuario` FOREIGN KEY (`professor`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION) in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `ho...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ho...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ho...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ho...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\HorarioAula.php(78): CodeIgniter\BaseModel->save(Array)
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-11-23 19:57:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_usuario` FOREIGN KEY (`professor`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[Method: POST, Route: horario-aula/salvar]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\HorarioAula.php(78): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 19:57:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_usuario` FOREIGN KEY (`professor`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123195752\', \'1\', \'110A\', \'ativo\', \'a\', \'2\', 3, 4, \'#E12120\', \'Sem professor\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123195752\', \'1\', \'110A\', \'ativo\', \'a\', \'2\', 3, 4, \'#E12120\', \'Sem professor\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\HorarioAula.php(78): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 19:57:52 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_usuario` FOREIGN KEY (`professor`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123195752\', \'1\', \'110A\', \'ativo\', \'a\', \'2\', 3, 4, \'#E12120\', \'Sem professor\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123195752\', \'1\', \'110A\', \'ativo\', \'a\', \'2\', 3, 4, \'#E12120\', \'Sem professor\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (\'20241123195752\', \'1\', \'110A\', \'ativo\', \'a\', \'2\', 3, 4, \'#E12120\', \'Sem professor\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `horario_aula` (`id_horario_aula`, `id_sala`, `codigo_turma`, `status`, `periodo_letivo`, `id_disciplina`, `dia_semana`, `horario`, `cor`, `professor`) VALUES (:id_horario_aula:, :id_sala:, :codigo_turma:, :status:, :periodo_letivo:, :id_disciplina:, :dia_semana:, :horario:, :cor:, :professor:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\HorarioAula.php(78): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\HorarioAula->salvarHorarioAula()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HorarioAula))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+INFO - 2024-11-23 20:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:11:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:11:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:11:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:11:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:12:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:12:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:12:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:12:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:12:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:12:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:13:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:13:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:13:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:13:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:13:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-23 21:13:09 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION) in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `tu...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `tu...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `tu...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `tu...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\Turma.php(61): CodeIgniter\BaseModel->delete(Array)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('hfuowh')
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-23 21:13:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[Method: GET, Route: turma/deletar/hfuowh]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `turma`
+WHERE `codigo_turma` IN :codigo_turma:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Turma.php(61): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('hfuowh')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 21:13:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'hfuowh\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'hfuowh\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `turma`
+WHERE `codigo_turma` IN :codigo_turma:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Turma.php(61): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('hfuowh')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 21:13:09 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'hfuowh\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'hfuowh\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'hfuowh\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `turma`
+WHERE `codigo_turma` IN :codigo_turma:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Turma.php(61): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('hfuowh')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+INFO - 2024-11-23 21:13:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-23 21:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-23 21:13:14 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION) in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `tu...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `tu...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `tu...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `tu...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\Turma.php(61): CodeIgniter\BaseModel->delete(Array)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('Teste')
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-23 21:13:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[Method: GET, Route: turma/deletar/Teste]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `turma`
+WHERE `codigo_turma` IN :codigo_turma:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Turma.php(61): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('Teste')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 21:13:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'Teste\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'Teste\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `turma`
+WHERE `codigo_turma` IN :codigo_turma:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Turma.php(61): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('Teste')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-23 21:13:14 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'Teste\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'Teste\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `turma`
+WHERE `codigo_turma` IN (\'Teste\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `turma`
+WHERE `codigo_turma` IN :codigo_turma:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Turma.php(61): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('Teste')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')

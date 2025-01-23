@@ -1,0 +1,85 @@
+CRITICAL - 2024-11-01 00:01:16 --> ErrorException: Undefined variable $disciplinas
+[Method: GET, Route: teste]
+in APPPATH\Views\teste.php on line 49.
+ 1 APPPATH\Views\teste.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $disciplinas', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\teste.php', 49)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\teste.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('teste', [], true)
+ 5 APPPATH\Controllers\Disciplina.php(38): view('teste', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->listarDisciplinas()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-01 00:01:20 --> ErrorException: Undefined variable $disciplinas
+[Method: GET, Route: teste]
+in APPPATH\Views\teste.php on line 49.
+ 1 APPPATH\Views\teste.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $disciplinas', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\teste.php', 49)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\teste.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('teste', [], true)
+ 5 APPPATH\Controllers\Disciplina.php(38): view('teste', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->listarDisciplinas()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-01 00:01:39 --> ErrorException: Undefined variable $disciplinas
+[Method: GET, Route: teste]
+in APPPATH\Views\teste.php on line 49.
+ 1 APPPATH\Views\teste.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $disciplinas', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\teste.php', 49)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\teste.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('teste', [], true)
+ 5 APPPATH\Controllers\Disciplina.php(38): view('teste', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->listarDisciplinas()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-01 00:02:47 --> ErrorException: Array to string conversion
+[Method: GET, Route: teste]
+in APPPATH\Controllers\Disciplina.php on line 40.
+ 1 APPPATH\Controllers\Disciplina.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Controllers\\Disciplina.php', 40)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->listarDisciplinas()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-01 00:50:36 --> ErrorException: Undefined array key "id_turma"
+[Method: GET, Route: lista/turma]
+in APPPATH\Views\listar_turma.php on line 15.
+ 1 APPPATH\Views\listar_turma.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_turma"', 'E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\listar_turma.php', 15)
+ 2 SYSTEMPATH\View\View.php(234): include('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\app\\Views\\listar_turma.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('listar_turma', [], true)
+ 5 APPPATH\Controllers\Turma.php(38): view('listar_turma', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Turma->listarTurma()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')
+CRITICAL - 2024-11-01 14:14:25 --> Error: Undefined constant "PUBLICPATH"
+[Method: GET, Route: teste]
+in APPPATH\Views\teste.php on line 8.
+ 1 SYSTEMPATH\View\View.php(234): include()
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('teste', [], true)
+ 4 APPPATH\Controllers\Disciplina.php(46): view('teste', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Disciplina->teste()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Disciplina))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('E:\\xampp\\htdocs\\Sistema_horarios_TCC\\public\\index.php')

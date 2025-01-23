@@ -1,0 +1,64 @@
+INFO - 2025-01-20 17:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-20 17:43:41 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION) in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `tu...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `tu...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `tu...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `tu...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\Turma.php(58): CodeIgniter\BaseModel->delete(Array)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('Teste')
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#14 {main}
+ERROR - 2025-01-20 17:43:41 --> Erro ao tentar excluir turma: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+INFO - 2025-01-20 17:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-20 17:43:49 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION) in E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\MySQLi\Connection.php(312): mysqli->query('DELETE FROM `tu...', 0)
+#1 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `tu...')
+#2 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `tu...')
+#3 E:\xampp\htdocs\Sistema_horarios_TCC\system\Database\BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `tu...', Array, false)
+#4 E:\xampp\htdocs\Sistema_horarios_TCC\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 E:\xampp\htdocs\Sistema_horarios_TCC\system\BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 E:\xampp\htdocs\Sistema_horarios_TCC\app\Controllers\Turma.php(58): CodeIgniter\BaseModel->delete(Array)
+#7 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(933): App\Controllers\Turma->deletarTurma('Teste')
+#8 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Turma))
+#9 E:\xampp\htdocs\Sistema_horarios_TCC\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 E:\xampp\htdocs\Sistema_horarios_TCC\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 E:\xampp\htdocs\Sistema_horarios_TCC\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 E:\xampp\htdocs\Sistema_horarios_TCC\system\rewrite.php(44): require_once('E:\\xampp\\htdocs...')
+#14 {main}
+ERROR - 2025-01-20 17:43:49 --> Erro ao tentar excluir turma: Cannot delete or update a parent row: a foreign key constraint fails (`sistema_horarios`.`horario_aula`, CONSTRAINT `fk_horario_aula_turma` FOREIGN KEY (`codigo_turma`) REFERENCES `turma` (`codigo_turma`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+INFO - 2025-01-20 17:43:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:43:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:51:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-20 17:51:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
