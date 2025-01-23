@@ -39,22 +39,26 @@
                             <table id="table1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Código</th>
+                                        <th>Código do Horário</th>
+                                        <th>Código da Turma</th>
                                         <th>Nome</th>
                                         <th>Nível de Ensino</th>
+                                        <th>Período Letivo</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($turmas as $turma): ?>
+                                    <?php foreach ($horarios_aulas as $horario_aula): ?>
                                         <tr>
-                                            <td><?= esc($turma['codigo_turma']) ?></td>
-                                            <td><?= esc($turma['nome_turma']) ?></td>
-                                            <td><?= esc($turma['nivel_ensino']) ?></td>
+                                            <td><?= esc($horario_aula['id_horario_aula']) ?></td>
+                                            <td><?= esc($horario_aula['codigo_turma']) ?></td>
+                                            <td><?= esc($horario_aula['nome_turma']) ?></td>
+                                            <td><?= esc($horario_aula['nivel_ensino']) ?></td>
+                                            <td><?= esc($horario_aula['periodo_letivo']) ?></td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="<?= url_to('editarHorarioAula', esc($turma['codigo_turma'])) ?>" class="btn btn-warning btn-sm">Editar</a>
-                                                    <a href="<?= url_to('deletarTurma', esc($turma['codigo_turma'])) ?>" class="btn btn-danger btn-sm">Deletar</a>
+                                                    <a href="<?= url_to('editarHorarioAula', esc($horario_aula['codigo_turma'])) ?>" class="btn btn-warning btn-sm">Editar</a>
+                                                    <a href="<?= url_to('deletarTurma', esc($horario_aula['codigo_turma'])) ?>" class="btn btn-danger btn-sm">Deletar</a>
                                                 </div>
                                             </td>
                                         </tr>

@@ -35,19 +35,13 @@ class HorarioAula extends BaseController
     public function listaHorarioAula()
     {
 
-        //Buscar valores únicos da coluna 'codigo_turma' na tabela 'horario_aula'
-        $codigoTurmas = $this->horarioAulaModel->distinct()->findColumn('codigo_turma');
-
-        // Todos os horários de aula
-        $data['horarios_aula'] = $this->horarioAulaModel->findAll();
-
-        //Buscar os dados na tabela 'turma' com base nos códigos das turmas encontrados
-        $turmas = [];
-        if ($codigoTurmas) {
-            // Buscar todos os registros na tabela 'turma' onde o 'codigo_turma' esteja na lista
-            $turmas = $this->turmaModel->whereIn('codigo_turma', $codigoTurmas)->findAll();
-        }
-        $data['turmas'] = $turmas;
+        // Obtém os dados de horários de aula e as informações relacionadas às turmas, eliminando duplicatas
+        $data['horarios_aulas'] = $this->horarioAulaModel
+            ->distinct() // Garante que os resultados sejam distintos, eliminando duplicatas com base nos campos selecionados.
+            ->select('horario_aula.*, turma.*') // Seleciona todas as colunas da tabela 'horario_aula' e 'turma'.
+            ->join('turma', 'turma.codigo_turma = horario_aula.codigo_turma') // Realiza um JOIN entre 'horario_aula' e 'turma', relacionando pelo campo 'codigo_turma'.
+            ->groupBy('horario_aula.id_horario_aula') // Agrupa os resultados pelo campo 'id_horario_aula', garantindo que cada ID apareça apenas uma vez.
+            ->findAll();
 
         return view('lista_horario_aula', $data);
     }
@@ -58,7 +52,7 @@ class HorarioAula extends BaseController
         $data['disciplinas'] = $this->disciplinaModel->findAll();
         $data['salas'] = $this->salaModel->findAll();
         $data['professores'] = $this->usuarioModel->where('tipo_usuario', 'professor')->findAll();
-        
+
         // Buscar o registro onde a coluna 'ativo' é 1 no periodoLetivoModel
         $data['periodoAtivo'] = $this->periodoLetivoModel->where('ativo', 1)->first();
 
