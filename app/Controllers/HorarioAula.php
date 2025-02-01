@@ -13,7 +13,6 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class HorarioAula extends BaseController
 {
-
     private $horarioAulaModel;
     private $disciplinaModel;
     private $salaModel;
@@ -21,20 +20,22 @@ class HorarioAula extends BaseController
     private $usuarioModel;
     private $periodoLetivoModel;
 
+    private $session;
+
     public function __construct()
     {
-
         $this->horarioAulaModel = new HorarioAulaModel();
         $this->disciplinaModel = new DisciplinaModel();
         $this->salaModel = new SalaModel();
         $this->turmaModel = new TurmaModel();
         $this->usuarioModel = new UsuarioModel();
         $this->periodoLetivoModel = new PeriodoLetivoModel();
+
+        $this->session = session();
     }
 
     public function listaHorarioAula()
     {
-
         // Obtém os dados de horários de aula e as informações relacionadas às turmas, eliminando duplicatas
         $data['horarios_aulas'] = $this->horarioAulaModel
             ->distinct() // Garante que os resultados sejam distintos, eliminando duplicatas com base nos campos selecionados.
@@ -48,7 +49,6 @@ class HorarioAula extends BaseController
 
     public function horarioAula()
     {
-
         $data['disciplinas'] = $this->disciplinaModel->findAll();
         $data['salas'] = $this->salaModel->findAll();
         $data['professores'] = $this->usuarioModel->where('tipo_usuario', 'professor')->findAll();
@@ -68,7 +68,6 @@ class HorarioAula extends BaseController
 
     public function horarioProfessor()
     {
-
         $data['professores'] = $this->usuarioModel->where('tipo_usuario', 'professor')->findAll();
 
         return view('horario_professor', $data);
@@ -76,7 +75,6 @@ class HorarioAula extends BaseController
 
     public function horarioSala()
     {
-
         $data['salas'] = $this->salaModel->findAll();
 
         return view('horario_sala', $data);
@@ -84,7 +82,6 @@ class HorarioAula extends BaseController
 
     public function editarHorarioAula($codigoTurma)
     {
-
         $data['disciplinas'] = $this->disciplinaModel->findAll();
         $data['salas'] = $this->salaModel->findAll();
         $data['turmas'] = $this->turmaModel->where('codigo_turma', $codigoTurma)->findAll();
@@ -99,14 +96,10 @@ class HorarioAula extends BaseController
 
     public function salvarHorarioAula()
     {
-
         $data = $this->request->getJSON(true);
 
-        // Dados do formulário
-        // $formData = $data['formData'];
-
-        // Processa os eventos com um try-catch geral
         try {
+
             $idHorarioAula = date('YmdHis');
             foreach ($data['eventData'] as $event) {
 
@@ -122,7 +115,6 @@ class HorarioAula extends BaseController
                     'horario_fim' => $event['horario_fim'],
                     'cor' => $event['cor'],
                     'professor' => $event['professor']
-
                 ]);
             }
 
@@ -134,24 +126,27 @@ class HorarioAula extends BaseController
 
     public function deletarHorarioAula($idHorarioAula)
     {
-
-        // log_message('debug', json_encode('entrou'));
         try {
-            // Tenta apagar o registro
-            $this->horarioAulaModel->where('id_horario_aula', $idHorarioAula)->delete();
+            // Tenta excluir a disciplina
+            if ($this->horarioAulaModel->where('id_horario_aula', $idHorarioAula)->delete()) {
 
-            // Retorna uma resposta de sucesso
-            return $this->response->setStatusCode(200)->setJSON(['message' => 'Registro apagado com sucesso!']);
-        } catch (\Exception $e) {
-            // Caso algo dê errado, retorne um erro
-            return $this->response->setStatusCode(500)->setJSON(['error' => $e->getMessage()]);
+                $this->session->setFlashdata('success', 'Horário de aula apagado com sucesso');
+            } else {
+
+                $this->session->setFlashdata('error', 'Horário de aula não apagado');
+            }
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+
+            // Captura o erro de chave estrangeira ou qualquer outro erro do banco de dados
+            log_message('error', 'Erro ao tentar excluir horário de aula: ' . $e->getMessage());
+            $this->session->setFlashdata('error', 'Não é possível excluir este horário de aula');
         }
-    }
 
+        return redirect()->route('listaHorarioAula');
+    }
 
     public function carregarHorarios($codigoTurma)
     {
-
         $pesquisaHorarios = $this->horarioAulaModel->where('codigo_turma', $codigoTurma)->findAll();
         $horarios = [];
 
@@ -188,11 +183,8 @@ class HorarioAula extends BaseController
 
     public function carregarHorariosProfessor($idProfessor)
     {
-
         $pesquisaHorarios = $this->horarioAulaModel->where('professor', $idProfessor)->findAll();
         $horarios = [];
-
-
 
         // Itera sobre os dados para formatar os eventos
         foreach ($pesquisaHorarios as $horario) {
@@ -221,7 +213,6 @@ class HorarioAula extends BaseController
     }
     public function carregarHorariosSala($idSala)
     {
-
         $pesquisaHorarios = $this->horarioAulaModel->where('id_sala', $idSala)->findAll();
         $horarios = [];
 

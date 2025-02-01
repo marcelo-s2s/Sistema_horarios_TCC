@@ -36,7 +36,17 @@
 
     <div id="app">
 
-        <?= $this->include('layouts/sidebar') ?>
+        <?php
+        $user = auth()->user();
+        $sidebar = 'layouts/sidebar'; // Padrão para usuários comuns
+
+        // Verifica se o usuário está logado e é administrador
+        if ($user !== null && $user->inGroup('admin')) {
+            $sidebar = 'layouts/sidebar_admin'; // Se for admin, muda para a sidebar de admin
+        }
+        ?>
+
+        <?= $this->include($sidebar) ?>
 
         <div id="main">
 

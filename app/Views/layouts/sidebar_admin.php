@@ -3,7 +3,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="<?= url_to('index') ?>"><img src="<?= base_url('images/logo_IF.png'); ?>" alt="Logo" srcset="" /></a>
+                    <a href="<?= url_to('index') ?>"><img src="<?= base_url('images/logo_IF.png');?>" alt="Logo" srcset=""/></a>
                 </div>
                 <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                     <div class="form-check form-switch fs-6">
@@ -23,10 +23,41 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= url_to('listaHorarioAula') ?>">
+                        <i class="fa-solid fa-calendar-days fa-lg"></i>
+                        <span>Horários de Aula</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= url_to('listarUsuario') ?>">
+                        <i class="fa-solid fa-user fa-lg"></i>
+                        <span>Usuários</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= url_to('listarDisciplina') ?>">
+                        <i class="fa-solid fa-book fa-lg"></i>
+                        <span>Disciplinas</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= url_to('listarSala') ?>">
+                        <i class="fa-solid fa-chalkboard fa-lg"></i>
+                        <span>Salas</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= url_to('listarTurma') ?>">
+                        <i class="fa-solid fa-users fa-lg"></i>
+                        <span>Turmas</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?= url_to('horarioProfessor') ?>">
                         <i class="fa-solid fa-person-chalkboard fa-lg"></i>
-                        <span>Professores</span>
+                        <span>Horário de Professor</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

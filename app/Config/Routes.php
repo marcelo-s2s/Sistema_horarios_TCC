@@ -6,8 +6,18 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->group('', ['filter' => 'session'], function ($routes) {
-    $routes->get('/', 'Home::index', ['as' => 'index']);
+$routes->get('/', 'Home::index', ['as' => 'index']);
+
+//Horários de Professores
+$routes->get('/horario-aula/professor', 'HorarioAula::horarioProfessor', ['as' => 'horarioProfessor']);
+$routes->get('/horario-aula/carregar-horarios-professor/(:alphanum)', 'HorarioAula::carregarHorariosProfessor/$1', ['as' => 'carregarHorariosProfessor']);
+
+//Horários de Salas
+$routes->get('/horario-aula/sala', 'HorarioAula::horarioSala', ['as' => 'horarioSala']);
+$routes->get('/horario-aula/carregar-horarios-sala/(:alphanum)', 'HorarioAula::carregarHorariosSala/$1', ['as' => 'carregarHorariosSala']);
+
+
+$routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     $routes->get('/teste', 'Home::teste', ['as' => 'teste']);
 
     // Usuário
@@ -34,17 +44,10 @@ $routes->group('', ['filter' => 'session'], function ($routes) {
     $routes->get('/horario-aula', 'HorarioAula::horarioAula', ['as' => 'horarioAula']);
     $routes->post('/horario-aula/salvar', 'HorarioAula::salvarHorarioAula', ['as' => 'salvarHorarioAula']);
     $routes->get('/horario-aula/editar/(:alphanum)', 'HorarioAula::editarHorarioAula/$1', ['as' => 'editarHorarioAula']);
-    $routes->delete('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
+    $routes->get('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
     $routes->get('/horario-aula/carregar-horarios/(:alphanum)', 'HorarioAula::carregarHorarios/$1', ['as' => 'carregarHorarios']);
     $routes->post('/horario-aula/verificar-conflitos', 'HorarioAula::verificarConflitos', ['as' => 'verificarConflitos']);
 
-    //Horários de Professores
-    $routes->get('/horario-aula/professor', 'HorarioAula::horarioProfessor', ['as' => 'horarioProfessor']);
-    $routes->get('/horario-aula/carregar-horarios-professor/(:alphanum)', 'HorarioAula::carregarHorariosProfessor/$1', ['as' => 'carregarHorariosProfessor']);
-
-    //Horários de Salas
-    $routes->get('/horario-aula/sala', 'HorarioAula::horarioSala', ['as' => 'horarioSala']);
-    $routes->get('/horario-aula/carregar-horarios-sala/(:alphanum)', 'HorarioAula::carregarHorariosSala/$1', ['as' => 'carregarHorariosSala']);
 
     // Disciplina
     $routes->get('/disciplina', 'Disciplina::listarDisciplina', ['as' => 'listarDisciplina']);
@@ -60,7 +63,3 @@ $routes->group('', ['filter' => 'session'], function ($routes) {
 });
 
 service('auth')->routes($routes);
-
-
-
-// $routes->post('/teste', 'HorarioAula::teste', ['as' => 'teste']);
