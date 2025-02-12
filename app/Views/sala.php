@@ -1,14 +1,12 @@
 <?= $this->extend('master'); ?>
 
-<?php helper('form'); ?>
-
 <?= $this->section('content'); ?>
 
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Sala</h3>
+                <h4>Sala</h4>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav
@@ -32,44 +30,41 @@
             <!-- Formulário de inserção ou atualização -->
             <div class="col-md-4">
 
-                <?php if ($alerta = session()->getFlashdata('alerta')): ?>
-                    <div class="alert alert-<?= esc($alerta['tipo']) ?> alert-dismissible fade show" role="alert">
-                        <strong><i class="fa fa-<?= $alerta['tipo'] === 'success' ? 'check' : 'ban' ?>"></i> <?= ucfirst($alerta['titulo']) ?>:</strong>
-                        <?= esc($alerta['mensagem']) ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                <?php endif; ?>
-
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h3 class="card-title"><?= isset($sala) ? 'Atualizar' : 'Nova' ?> Sala</h3>
                     </div>
 
-                    <?= form_open(url_to('salvarSala'), ['role' => 'form']) ?>
-
                     <div class="card-body">
-                        <?= isset($sala) ? "
-                    <div class='mb-3'> 
-                        <label class='form-label'>ID</label> 
-                        <input name='id_sala' type='text' class='form-control' value='" . esc($sala['id_sala']) . "' readonly> 
-                    </div>" : ""
-                        ?>
+                        <?= form_open(url_to('salvarSala'), ['role' => 'form']) ?>
 
-                        <div class="mb-3">
-                            <label class="form-label">Nome</label>
-                            <input name="nome_sala" type="text" class="form-control" value="<?= $sala['nome_sala'] ?? '' ?>" required>
+                        <div class="form-body">
+                            <?= isset($sala) ? "
+                                <div class='mb-3'> 
+                                    <label class='form-label'>ID</label> 
+                                    <input name='id_sala' type='text' class='form-control' value='" . esc($sala['id_sala']) . "' readonly> 
+                                </div>" : ""?>
+
+                            <div class="mb-3">
+                                <label class="form-label">Nome</label>
+                                <input name="nome_sala" type="text" class="form-control" value="<?= $sala['nome_sala'] ?? '' ?>" required>
+                            </div>
+
                         </div>
+                        <div class="form-actions d-flex justify-content-end">
+
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+
+                        </div>
+
+                        <?= form_close() ?>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                    <?= form_close() ?>
                 </div>
             </div>
 
             <!-- Tabela de registros -->
             <div class="col-md-8">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h3 class="card-title">Todas as Salas</h3>
                     </div>
@@ -91,7 +86,8 @@
                                             <td>
                                                 <div class="d-flex gap-2">
                                                     <a href="<?= url_to('editarSala', esc($sala['id_sala'])) ?>" class="btn btn-warning btn-sm">Editar</a>
-                                                    <a href="<?= url_to('deletarSala', esc($sala['id_sala'])) ?>" class="btn btn-danger btn-sm">Deletar</a>
+                                                    <a href="#" class="btn btn-danger btn-sm"
+                                                        onclick="confirmarDelecao('/sala/deletar/<?= esc($sala['id_sala']) ?>')">Deletar</a>
                                                 </div>
                                             </td>
                                         </tr>

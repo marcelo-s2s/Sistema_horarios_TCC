@@ -41,7 +41,7 @@ class Turma extends BaseController
             $this->session->setFlashdata('error', 'Erro ao salvar turma');
         }
         
-        return redirect()->to('/turma');
+        return redirect()->route('listarTurma');
     }
     public function editarTurma($codigo_turma){
 
@@ -70,7 +70,7 @@ class Turma extends BaseController
             $this->session->setFlashdata('error', 'Não é possível excluir esta turma, pois ela está associada a um horário.');
         }
 
-        return redirect()->to('/turma');
+        return redirect()->route('listarTurma');
     }
 
 }

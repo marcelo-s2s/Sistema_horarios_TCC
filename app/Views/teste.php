@@ -67,7 +67,7 @@
     <section class="section">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h5 class="card-title">Change Password</h5>
                     </div>
@@ -99,7 +99,7 @@
             </div>
 
             <div class="col-12">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h5 class="card-title">Two Factor Authentication</h5>
                     </div>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="col-12">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h5 class="card-title">Delete Account</h5>
                     </div>

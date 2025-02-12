@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UsuarioModel;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Shield\Entities\User;
 
 class Usuario extends BaseController
 {
@@ -16,14 +16,37 @@ class Usuario extends BaseController
     {
 
         $this->session = session();
-        $this->usuarioModel = new UsuarioModel();
+        $this->usuarioModel = auth()->getProvider();
+    }
+
+    public function buscarUsuario()
+    {
+        // Busca os dados dos usuários
+        $dadosUsuarios = $this->usuarioModel->findAll();
+
+        // Inicializa o array de usuários
+        $usuarios = [];
+
+        // Itera sobre os resultados para formatar os dados antes de passar para a view.
+        foreach ($dadosUsuarios as $dadosUsuario) {
+            $usuarios[] = [
+                'id_usuario' => $dadosUsuario->id, // ID do usuário.
+                'nome' => $dadosUsuario->username, // Nome de usuário.
+                'data_cadastro' => $dadosUsuario->created_at->toDateTimeString(), // Data de cadastro formatada como string.
+                'tipo_usuario' => $dadosUsuario->groups[0], // Grupo ao qual o usuário pertence.
+                'email' => $dadosUsuario->email, // E-mail ou credencial armazenada em auth_identities.
+            ];
+        }
+
+        return $usuarios;
     }
 
     public function listarUsuario()
     {
+        //Prepara as informações para serem mandadas para a view
+        $data['usuarios'] = $this->buscarUsuario();
 
-        $data['usuarios'] = $this->usuarioModel->findAll();
-
+        // Retorna a view 'usuario' com os dados formatados.
         return view('usuario', $data);
     }
 
@@ -32,22 +55,40 @@ class Usuario extends BaseController
 
         $dadosUsuario = $this->request->getPost();
 
-        if ($this->usuarioModel->save($dadosUsuario)) {
+        // Criar entidade User
+        $user = new User();
+        $user->fill($dadosUsuario);
 
-            $this->session->setFlashdata('success', 'Usuário salvo com sucesso');
+        // Salvar usuário
+        if ($this->usuarioModel->save($user)) {
 
+            $this->session->setFlashdata('success', 'Usuário salva com sucesso');
+
+            //Se o usuário já existe, pega o id, se não (caso de novo usuário), pega o ID gerado
+            $userId = $user->id ?? $this->usuarioModel->getInsertID();
+
+            $user = $this->usuarioModel->findById($userId);
+
+            $user->activate();
+
+            // Verifica se um grupo foi selecionado e adiciona o usuário ao grupo escolhido
+            $group = $dadosUsuario['tipo_usuario'] ?? 'user'; // Padrão: usuário comum
+
+            $user->syncGroups($group);
         } else {
 
             $this->session->setFlashdata('error', 'Erro ao salvar usuário');
         }
 
-        return redirect()->to('/usuario');
+
+        return redirect()->route('listarUsuario');
     }
+
     public function editarUsuario($id_usuario)
     {
 
-        $data['usuario'] = $this->usuarioModel->find($id_usuario);
-        $data['usuarios'] = $this->usuarioModel->findAll();
+        $data['usuario'] = $this->usuarioModel->findById($id_usuario);
+        $data['usuarios'] = $this->buscarUsuario();
 
         return view('usuario', $data);
     }
@@ -56,10 +97,9 @@ class Usuario extends BaseController
     {
         try {
             // Tenta excluir o usuario
-            if ($this->usuarioModel->delete($id_usuario)) {
+            if ($this->usuarioModel->delete($id_usuario, true)) {
 
                 $this->session->setFlashdata('success', 'Usuário apagado com sucesso');
-
             } else {
 
                 $this->session->setFlashdata('error', 'Usuário não apagado');
@@ -71,6 +111,6 @@ class Usuario extends BaseController
             $this->session->setFlashdata('error', 'Não é possível excluir este usuário, pois ela está associada a um horário.');
         }
 
-        return redirect()->to('/usuario');
+        return redirect()->route('listarUsuario');
     }
 }

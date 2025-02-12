@@ -1,15 +1,12 @@
 <?= $this->extend('master'); ?>
 
-<?php helper('form'); ?>
-
 <?= $this->section('content'); ?>
-
 
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Período Letivo</h3>
+                <h4>Período Letivo</h4>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav
@@ -32,112 +29,82 @@
 
             <div class="col-md-4">
 
-                <?php if ($alerta = session()->getFlashdata('alerta')): ?>
-                    <div class="alert alert-<?= esc($alerta['tipo']) ?> alert-dismissible fade show" role="alert">
-                        <strong><?= ucfirst($alerta['titulo']) ?>:</strong> <?= esc($alerta['mensagem']) ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h3 class="card-title"><?= isset($periodo) ? 'Atualizar' : 'Novo' ?> Período Letivo</h3>
                     </div>
-                <?php endif; ?>
+                    <div class="card-body">
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-body">
-                            <h4 class="card-title"><?= isset($periodo) ? 'Atualizar' : 'Novo' ?> Período</h4>
+                        <?= form_open(url_to('salvarPeriodo'), ['role' => 'form']) ?>
 
-                            <?= form_open(url_to('salvarDisciplina'), ['role' => 'form']) ?>
+                        <div class="form-body">
 
-                            <div class="form-body">
-
-                                <?= isset($periodo) ? "
-                                        <div class='mb-3'>
-                                            <label for='id_disciplina' class='form-label'>ID</label>
-                                            <input name='id_disciplina' type='text' class='form-control' value='" . esc($periodo['id_disciplina']) . "' readonly>
-                                        </div>" : "" ?>
-
-                                <div class="mb-3">
-                                    <label for="nome_disciplina" class="form-label">Nome</label>
-                                    <input name="nome_disciplina" type="text" class="form-control" value="<?= $periodo['nome_disciplina'] ?? '' ?>" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="carga_horaria" class="form-label">Carga Horária</label>
-                                    <input name="carga_horaria" type="number" class="form-control" value="<?= $periodo['carga_horaria'] ?? '' ?>" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="nivel_ensino" class="form-label">Nível de Ensino</label>
-                                    <input name="nivel_ensino" type="text" class="form-control" value="<?= $periodo['nivel_ensino'] ?? '' ?>" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="tipo" class="form-label">Tipo de Disciplina</label>
-                                    <select name="tipo" class="form-select">
-                                        <option value="semestral" <?= (isset($periodo) && $periodo['tipo'] === 'semestral') ? 'selected' : '' ?>>Semestral</option>
-                                        <option value="anual" <?= (isset($periodo) && $periodo['tipo'] === 'anual') ? 'selected' : '' ?>>Anual</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="ch_semanal" class="form-label">CH Semanal</label>
-                                    <input name="ch_semanal" type="number" class="form-control" value="<?= $periodo['ch_semanal'] ?? '' ?>" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="cor" class="form-label">Cor do Evento</label>
-                                    <input type="color" name="cor" class="form-control form-control-color" id="cor" title="Escolha a cor do evento" value="<?= $periodo['cor'] ?? '' ?>" required>
-                                </div>
-
+                            <div class="mb-3">
+                                <label for="periodo" class="form-label">Período</label>
+                                <input name="periodo" type="text" class="form-control" value="<?= $periodo['periodo'] ?? '' ?>" required>
                             </div>
-                            <div class="form-actions d-flex justify-content-end">
-
-                                <button type="submit" class="btn btn-primary">Salvar</button>
-
+                            <div class="mb-3">
+                                <label for="ano" class="form-label">Ano</label>
+                                <input name="ano" type="number" class="form-control" value="<?= $periodo['ano'] ?? '' ?>" required>
                             </div>
-
-                            <?= form_close() ?>
 
                         </div>
+                        <div class="form-actions d-flex justify-content-end">
+
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+
+                        </div>
+
+                        <?= form_close() ?>
                     </div>
                 </div>
             </div>
 
             <!-- Tabela de registros -->
             <div class="col-md-8">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
-                        <h3 class="card-title">Todas as Disciplinas</h5>
+                        <h3 class="card-title">Todos os Períodos</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="table1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Nome</th>
-                                        <th>Carga Horária</th>
-                                        <th>Nível de Ensino</th>
-                                        <th>Tipo de Disciplina</th>
-                                        <th>CH Semanal</th>
-                                        <th>Cor</th>
+                                        <th>Período</th>
+                                        <th>Ano</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($periodos as $periodo): ?>
-                                        <tr>
-                                            <td><?= esc($periodo['id_disciplina']) ?></td>
-                                            <td><?= esc($periodo['nome_disciplina']) ?></td>
-                                            <td><?= esc($periodo['carga_horaria']) ?></td>
-                                            <td><?= esc($periodo['nivel_ensino']) ?></td>
-                                            <td><?= esc($periodo['tipo']) ?></td>
-                                            <td><?= esc($periodo['ch_semanal']) ?></td>
-                                            <td>
-                                                <div style="background-color: <?= esc($periodo['cor']) ?>; width: 20px; height: 20px; border-radius: 50%;"></div>
-                                            </td>
+                                        <tr class="<?= $periodo['ativo'] ? 'table-success' : '' ?>"> <!-- Destaque para o período ativo -->
+                                            <td><?= esc($periodo['periodo']) ?></td>
+                                            <td><?= esc($periodo['ano']) ?></td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="<?= url_to('editarDisciplina', esc($periodo['id_disciplina'])) ?>" class="btn btn-warning btn-sm">Editar</a>
-                                                    <a href="<?= url_to('deletarDisciplina', esc($periodo['id_disciplina'])) ?>" class="btn btn-danger btn-sm">Deletar</a>
+                                                    <a href="<?= url_to('editarPeriodo', esc($periodo['periodo'])) ?>" class="btn btn-warning btn-sm">
+                                                        Editar
+                                                    </a>
+                                                    <a href="#" class="btn btn-danger btn-sm" onclick="confirmarDelecao('/periodo/deletar/<?= esc($periodo['periodo']) ?>')">
+                                                        Deletar
+                                                    </a>
+
+                                                    <!-- Botão para ativar período -->
+                                                    <?php if (!$periodo['ativo']): ?>
+                                                        <a href="<?= url_to('ativarPeriodo', esc($periodo['periodo'])) ?>" class="btn btn-success btn-sm">
+                                                            Ativar
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <!-- <span class="badge bg-success">Ativo</span> -->
+                                                        <button class="btn btn-success btn-sm" disabled>Ativo</button>
+                                                    <?php endif; ?>
                                                 </div>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+
                             </table>
                         </div>
                     </div>
@@ -146,6 +113,5 @@
         </div>
     </section>
 </div>
-
 
 <?= $this->endSection() ?>

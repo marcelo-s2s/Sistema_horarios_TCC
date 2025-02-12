@@ -121,10 +121,10 @@ class RegisterController extends BaseController
         $user = $users->findById($users->getInsertID());
 
         // Add to default group
-        // $users->addToDefaultGroup($user);
+        $users->addToDefaultGroup($user);
 
         // Adiciona ao grupo 'admin'
-        $user->addGroup('admin');
+        // $user->addGroup('admin');
 
         Events::trigger('register', $user);
 

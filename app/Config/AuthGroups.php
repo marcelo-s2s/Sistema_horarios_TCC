@@ -61,6 +61,10 @@ class AuthGroups extends ShieldAuthGroups
             'title'       => 'Beta User',
             'description' => 'Has access to beta-level features.',
         ],
+        'professor' => [
+            'title'       => 'Professor',
+            'description' => 'Categoria de professor',
+        ],
     ];
 
     /**
@@ -110,6 +114,7 @@ class AuthGroups extends ShieldAuthGroups
             'beta.access',
         ],
         'user' => [],
+        'professor' => [],
         'beta' => [
             'beta.access',
         ],

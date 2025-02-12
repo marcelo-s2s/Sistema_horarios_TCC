@@ -40,7 +40,7 @@ class Disciplina extends BaseController
             $this->session->setFlashdata('error', 'Erro ao salvar disciplina');
         }
 
-        return redirect()->to('/disciplina');
+        return redirect()->route('listarDisciplina');
     }
 
     public function editarDisciplina($id_disciplina)
@@ -71,6 +71,7 @@ class Disciplina extends BaseController
             $this->session->setFlashdata('error', 'Não é possível excluir esta disciplina, pois ela está associada a um horário.');
         }
 
-        return redirect()->to('/disciplina');
+        return redirect()->route('listarDisciplina');
+        
     }
 }

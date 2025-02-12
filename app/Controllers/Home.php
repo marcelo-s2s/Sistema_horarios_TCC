@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Models\DisciplinaModel;
 use App\Models\SalaModel;
 use App\Models\TurmaModel;
-use App\Models\UsuarioModel;
 
 class Home extends BaseController
 {
@@ -20,7 +19,7 @@ class Home extends BaseController
     {
 
         $this->disciplinaModel = new DisciplinaModel();
-        $this->usuarioModel = new UsuarioModel();
+        $this->usuarioModel = auth()->getProvider();
         $this->salaModel = new SalaModel();
         $this->turmaModel = new TurmaModel();
     }
@@ -34,32 +33,23 @@ class Home extends BaseController
     }
 
     public function teste(){
-        $data['usuarios'] = $this->usuarioModel->findAll();
+        // $data['usuarios'] = $this->usuarioModel->findAll();
 
-        return view('teste', $data);
-    }
+        // return view('teste', $data);
 
-    public function listarTodasTabelas(){
+        $user = auth()->user();
 
-        $data['disciplinas'] = $this->disciplinaModel->findAll();
-        $data['usuarios'] = $this->usuarioModel->findAll();
-        $data['salas'] = $this->salaModel->findAll();
-        $data['turmas'] = $this->turmaModel->findAll();
-
-        return $data;
+        var_dump($user);
     }
 
     public function totalRegistros()
     {
-
-        $data = $this->listarTodasTabelas();
-
-
-        // Conta o número de registros em cada item do array
-        $totalDisciplinas = count($data['disciplinas']);
-        $totalUsuarios = count($data['usuarios']);
-        $totalSalas = count($data['salas']);
-        $totalTurmas = count($data['turmas']);
+        
+        $totalDisciplinas = $this->disciplinaModel->countAll();
+        $totalUsuarios = $this->usuarioModel->countAll();
+        $totalSalas = $this->salaModel->countAll();
+        $totalTurmas = $this->turmaModel->countAll();
+        
 
         return [
             'totalDisciplinas' => $totalDisciplinas,

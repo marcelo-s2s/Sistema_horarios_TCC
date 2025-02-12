@@ -1,14 +1,12 @@
 <?= $this->extend('master'); ?>
 
-<?php helper('form'); ?>
-
 <?= $this->section('content'); ?>
 
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Horário de Aula</h3>
+                <h4>Horário de Aula</h4>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav
@@ -30,7 +28,7 @@
         <div class="row">
             <!-- Tabela de registros -->
             <div class="col-md-12">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h3 class="card-title">Todos os Horários de Aula</h3>
                     </div>
@@ -53,8 +51,10 @@
                                             <td><?= esc($horario_aula['periodo_letivo']) ?></td>
                                             <td>
                                                 <div class="d-flex gap-2">
+                                                    
                                                     <a href="<?= url_to('editarHorarioAula', esc($horario_aula['codigo_turma'])) ?>" class="btn btn-warning btn-sm">Editar</a>
-                                                    <a href="<?= url_to('deletarHorarioAula', esc($horario_aula['id_horario_aula'])) ?>" class="btn btn-danger btn-sm">Deletar</a>
+                                                    <a href="#" class="btn btn-danger btn-sm"
+                                                        onclick="confirmarDelecao('/horario-aula/deletar/<?= esc($horario_aula['id_horario_aula']) ?>')">Deletar</a>
                                                 </div>
                                             </td>
                                         </tr>

@@ -28,6 +28,9 @@
     <!-- Toastify -->
     <link rel="stylesheet" href="<?= base_url('assets/mazer/css/toastify.css') ?>">
 
+    <!-- SweetAlert -->
+    <link rel="stylesheet" href="<?= base_url('assets/mazer/css/sweetalert2.min.css') ?>">
+
 
     <?= $this->renderSection('css') ?>
 </head>
@@ -110,6 +113,10 @@
     <!-- Toastify -->
     <script src="<?= base_url('assets/js/toastify.js') ?>"></script>
     <script src="<?= base_url('assets/mazer/js/toastify.js') ?>"></script>
+
+    <!-- SweetAlert -->
+    <script src="<?= base_url('assets/mazer/js/sweetalert2.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/sweetalert2.js') ?>"></script>
 
 </body>
 

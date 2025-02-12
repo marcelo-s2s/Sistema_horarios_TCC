@@ -1,14 +1,12 @@
 <?= $this->extend('master'); ?>
 
-<?php helper('form'); ?>
-
 <?= $this->section('content'); ?>
 
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Usuário</h3>
+                <h4>Professor</h4>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav
@@ -16,7 +14,7 @@
                     class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="#">Usuário</a>
+                            <a href="#">Professor</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
                             Detalhes
@@ -39,7 +37,7 @@
                     </div>
                 <?php endif; ?>
 
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h3 class="card-title"><?= isset($usuario) ? 'Atualizar' : 'Novo' ?> Professor</h3>
                     </div>
@@ -82,7 +80,7 @@
 
             <!-- Tabela de registros -->
             <div class="col-md-8">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h3 class="card-title">Todos os Professores</h3>
                     </div>
@@ -110,7 +108,8 @@
                                             <td>
                                                 <div class="d-flex gap-2">
                                                     <a href="<?= url_to('editarUsuario', esc($usuario['id_usuario'])) ?>" class="btn btn-warning btn-sm">Editar</a>
-                                                    <a href="<?= url_to('deletarUsuario', esc($usuario['id_usuario'])) ?>" class="btn btn-danger btn-sm">Deletar</a>
+                                                    <a href="#" class="btn btn-danger btn-sm"
+                                                        onclick="confirmarDelecao('/usuario/deletar/<?= esc($usuario['id_usuario']) ?>')">Deletar</a>
                                                 </div>
                                             </td>
                                         </tr>

@@ -16,9 +16,9 @@ $routes->get('/horario-aula/carregar-horarios-professor/(:alphanum)', 'HorarioAu
 $routes->get('/horario-aula/sala', 'HorarioAula::horarioSala', ['as' => 'horarioSala']);
 $routes->get('/horario-aula/carregar-horarios-sala/(:alphanum)', 'HorarioAula::carregarHorariosSala/$1', ['as' => 'carregarHorariosSala']);
 
+$routes->get('/teste', 'Home::teste', ['as' => 'teste']);
 
 $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
-    $routes->get('/teste', 'Home::teste', ['as' => 'teste']);
 
     // Usuário
     $routes->get('/usuario', 'Usuario::listarUsuario', ['as' => 'listarUsuario']);
@@ -44,6 +44,7 @@ $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     $routes->get('/horario-aula', 'HorarioAula::horarioAula', ['as' => 'horarioAula']);
     $routes->post('/horario-aula/salvar', 'HorarioAula::salvarHorarioAula', ['as' => 'salvarHorarioAula']);
     $routes->get('/horario-aula/editar/(:alphanum)', 'HorarioAula::editarHorarioAula/$1', ['as' => 'editarHorarioAula']);
+    $routes->delete('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
     $routes->get('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
     $routes->get('/horario-aula/carregar-horarios/(:alphanum)', 'HorarioAula::carregarHorarios/$1', ['as' => 'carregarHorarios']);
     $routes->post('/horario-aula/verificar-conflitos', 'HorarioAula::verificarConflitos', ['as' => 'verificarConflitos']);
@@ -56,10 +57,11 @@ $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     $routes->get('/disciplina/deletar/(:num)', 'Disciplina::deletarDisciplina/$1', ['as' => 'deletarDisciplina']);
    
     // Periodo
-    $routes->get('/periodo', 'Periodo::listarPeriodo', ['as' => 'listarPeriodo']);
-    $routes->post('/periodo/salvar', 'Periodo::salvarPeriodo', ['as' => 'salvarPeriodo']);
-    $routes->get('/periodo/editar/(:num)', 'Periodo::editarPeriodo/$1', ['as' => 'editarPeriodo']);
-    $routes->get('/periodo/deletar/(:num)', 'Periodo::deletarPeriodo/$1', ['as' => 'deletarPeriodo']);
+    $routes->get('/periodo', 'PeriodoLetivo::listarPeriodo', ['as' => 'listarPeriodo']);
+    $routes->post('/periodo/salvar', 'PeriodoLetivo::salvarPeriodo', ['as' => 'salvarPeriodo']);
+    $routes->get('/periodo/editar/(:any)', 'PeriodoLetivo::editarPeriodo/$1', ['as' => 'editarPeriodo']);
+    $routes->get('/periodo/deletar/(:any)', 'PeriodoLetivo::deletarPeriodo/$1', ['as' => 'deletarPeriodo']);
+    $routes->get('/periodo/ativar/(:any)', 'PeriodoLetivo::ativarPeriodo/$1', ['as' => 'ativarPeriodo']);
 });
 
 service('auth')->routes($routes);

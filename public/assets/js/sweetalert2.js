@@ -6,6 +6,24 @@ function showSweetAlert(message, type) {
   })
 }
 
+function confirmarDelecao(url) {
+  console.log('teste');
+  Swal.fire({
+    title: "Tem certeza?",
+    text: "Esta ação não pode ser desfeita!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Sim, excluir!",
+    cancelButtonText: "Cancelar"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = url;
+    }
+  });
+}
+
 // Outros recursos não utilizados
 
 // document.getElementById("basic").addEventListener("click", (e) => {

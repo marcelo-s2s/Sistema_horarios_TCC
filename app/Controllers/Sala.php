@@ -42,7 +42,7 @@ class Sala extends BaseController
             $this->session->setFlashdata('error', 'Erro ao salvar Sala');
         }
         
-        return redirect()->to('/sala');
+        return redirect()->route('listarSala');
     }
     public function editarSala($id_sala){
 
@@ -67,7 +67,7 @@ class Sala extends BaseController
             $this->session->setFlashdata('error', 'Não é possível excluir esta sala, pois ela está associada a um horário.');
         }
 
-        return redirect()->to('/sala');
+        return redirect()->route('listarSala');
     }
 
 }

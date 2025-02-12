@@ -1,14 +1,12 @@
 <?= $this->extend('master'); ?>
 
-<?php helper('form'); ?>
-
 <?= $this->section('content'); ?>
 
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Turma</h3>
+                <h4>Turma</h4>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav
@@ -31,45 +29,41 @@
             <!-- Formulário de inserção ou atualização -->
             <div class="col-md-4">
 
-                <?php if ($alerta = session()->getFlashdata('alerta')): ?>
-                    <div class="alert alert-<?= esc($alerta['tipo']) ?> alert-dismissible fade show" role="alert">
-                        <strong><i class="fa fa-<?= $alerta['tipo'] === 'success' ? 'check' : 'ban' ?>"></i> <?= ucfirst($alerta['titulo']) ?>:</strong>
-                        <?= esc($alerta['mensagem']) ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                <?php endif; ?>
-
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h3 class="card-title"><?= isset($turma) ? 'Atualizar' : 'Nova' ?> Turma</h3>
                     </div>
 
-                    <?= form_open(url_to('salvarTurma'), ['role' => 'form']) ?>
-
                     <div class="card-body">
-                        <div class="mb-3">
-                            <label class="form-label">Código</label>
-                            <input name="codigo_turma" type="text" class="form-control" value="<?= $turma['codigo_turma'] ?? '' ?>" required>
+                        <?= form_open(url_to('salvarTurma'), ['role' => 'form']) ?>
+
+                        <div class="form-body">
+                            <div class="mb-3">
+                                <label class="form-label">Código</label>
+                                <input name="codigo_turma" type="text" class="form-control" value="<?= $turma['codigo_turma'] ?? '' ?>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nome</label>
+                                <input name="nome_turma" type="text" class="form-control" value="<?= $turma['nome_turma'] ?? '' ?>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nível de ensino</label>
+                                <input name="nivel_ensino" type="text" class="form-control" value="<?= $turma['nivel_ensino'] ?? '' ?>" required>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nome</label>
-                            <input name="nome_turma" type="text" class="form-control" value="<?= $turma['nome_turma'] ?? '' ?>" required>
+
+                        <div class="form-actions d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nível de ensino</label>
-                            <input name="nivel_ensino" type="text" class="form-control" value="<?= $turma['nivel_ensino'] ?? '' ?>" required>
-                        </div>
+
+                        <?= form_close() ?>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                    <?= form_close() ?>
                 </div>
             </div>
 
             <!-- Tabela de registros -->
             <div class="col-md-8">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
                         <h3 class="card-title">Todas as Turmas</h3>
                     </div>
@@ -93,7 +87,8 @@
                                             <td>
                                                 <div class="d-flex gap-2">
                                                     <a href="<?= url_to('editarTurma', esc($turma['codigo_turma'])) ?>" class="btn btn-warning btn-sm">Editar</a>
-                                                    <a href="<?= url_to('deletarTurma', esc($turma['codigo_turma'])) ?>" class="btn btn-danger btn-sm">Deletar</a>
+                                                    <a href="#" class="btn btn-danger btn-sm"
+                                                        onclick="confirmarDelecao('/turma/deletar/<?= esc($turma['codigo_turma']) ?>')">Deletar</a>
                                                 </div>
                                             </td>
                                         </tr>

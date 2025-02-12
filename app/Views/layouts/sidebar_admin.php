@@ -3,7 +3,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="<?= url_to('index') ?>"><img src="<?= base_url('images/logo_IF.png');?>" alt="Logo" srcset=""/></a>
+                    <a href="<?= url_to('index') ?>"><img src="<?= base_url('images/logo_IF.png'); ?>" alt="Logo" srcset="" /></a>
                 </div>
                 <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                     <div class="form-check form-switch fs-6">
@@ -53,6 +53,12 @@
                         <i class="fa-solid fa-users fa-lg"></i>
                         <span>Turmas</span>
                     </a>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= url_to('listarPeriodo') ?>">
+                        <i class="fa-solid fa-calendar fa-lg"></i>
+                        <span>Período Letivo</span>
+                    </a>
+                </li>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?= url_to('horarioProfessor') ?>">
@@ -67,6 +73,27 @@
                     </a>
                 </li>
             </ul>
+        </div>
+        <!-- Rodapé da sidebar com período letivo e botão de login -->
+        <div class="sidebar-footer position-absolute bottom-0 w-100 p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Período Letivo Ativo -->
+                <div class="text-muted">
+                    <small>Período:</small>
+                    <strong><?= getPeriodoAtivo() ?></strong>
+                </div>
+
+                <!-- Botão de Login ou Logout -->
+                <?php if (auth()->loggedIn()): ?>
+                    <a href="<?= url_to('logout') ?>" class="sidebar-item">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </a>
+                <?php else: ?>
+                    <a href="<?= url_to('login') ?>" class="sidebar-item">
+                        <i class="fa-solid fa-right-to-bracket fa-lg"></i> Login
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>
