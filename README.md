@@ -1,5 +1,10 @@
 # CodeIgniter 4 Framework
 
+## Dados de Login do Admin
+
+E-mail: admin@gmail.com
+Senha: A8s2D5o3 
+
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
