@@ -44,6 +44,12 @@
             <div class="col-md-2">
 
                 <div class="card shadow">
+                    <div class="card-body d-flex">
+                        <button type="button" id="exportarPDF" class="btn btn-primary mx-auto">Gerar PDF</button>
+                    </div>
+                </div>
+
+                <div class="card shadow">
                     <div id="external-events" class="card-body">
                         <h4 class="text-center mb-3">Disciplinas</h4>
 

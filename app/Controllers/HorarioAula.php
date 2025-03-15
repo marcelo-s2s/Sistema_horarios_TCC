@@ -8,7 +8,6 @@ use App\Models\DisciplinaModel;
 use App\Models\PeriodoLetivoModel;
 use App\Models\SalaModel;
 use App\Models\TurmaModel;
-use App\Models\UsuarioModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class HorarioAula extends BaseController
@@ -28,7 +27,6 @@ class HorarioAula extends BaseController
         $this->disciplinaModel = new DisciplinaModel();
         $this->salaModel = new SalaModel();
         $this->turmaModel = new TurmaModel();
-        // $this->usuarioModel = new UsuarioModel();
         $this->usuarioModel = auth()->getProvider();
         $this->periodoLetivoModel = new PeriodoLetivoModel();
 
@@ -80,14 +78,29 @@ class HorarioAula extends BaseController
         return $professores;
     }
 
+    public function verificarPeriodoAtivo()
+    {
+
+        // Busca o período letivo onde 'ativo' é 1
+        $periodo = $this->periodoLetivoModel->where('ativo', 1)->first();
+
+        // Se encontrar um período ativo, retorna a identificação (exemplo: "25.1")
+        return $periodo ? $periodo['periodo'] : 'erro';
+    }
+
+
     public function listaHorarioAula()
     {
+        // Obtém o período letivo ativo
+        $periodoAtivo = $this->verificarPeriodoAtivo();
+
         // Obtém os dados de horários de aula e as informações relacionadas às turmas, eliminando duplicatas
         $data['horarios_aulas'] = $this->horarioAulaModel
-            ->distinct() // Garante que os resultados sejam distintos, eliminando duplicatas com base nos campos selecionados.
-            ->select('horario_aula.*, turma.*') // Seleciona todas as colunas da tabela 'horario_aula' e 'turma'.
-            ->join('turma', 'turma.codigo_turma = horario_aula.codigo_turma') // Realiza um JOIN entre 'horario_aula' e 'turma', relacionando pelo campo 'codigo_turma'.
-            ->groupBy('horario_aula.id_horario_aula') // Agrupa os resultados pelo campo 'id_horario_aula', garantindo que cada ID apareça apenas uma vez.
+            ->distinct()
+            ->select('horario_aula.*, turma.*')
+            ->join('turma', 'turma.codigo_turma = horario_aula.codigo_turma')
+            ->where('horario_aula.periodo_letivo', $periodoAtivo)
+            ->groupBy('horario_aula.id_horario_aula')
             ->findAll();
 
         return view('lista_horario_aula', $data);
@@ -182,7 +195,7 @@ class HorarioAula extends BaseController
             }
         } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
 
-            $response = ['status' => 'error', 'message' => 'Erro: '. $e->getMessage()];
+            $response = ['status' => 'error', 'message' => 'Erro: ' . $e->getMessage()];
         }
 
         // Se for a requisição AJAX, retorna JSON
@@ -197,10 +210,13 @@ class HorarioAula extends BaseController
 
     public function carregarHorarios($codigoTurma)
     {
-        $pesquisaHorarios = $this->horarioAulaModel->where('codigo_turma', $codigoTurma)->findAll();
+        // Pesquisa os horários da turma apenas no período letivo ativo
+        $pesquisaHorarios = $this->horarioAulaModel
+            ->where('codigo_turma', $codigoTurma)
+            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->findAll();
+
         $horarios = [];
-
-
 
         // Itera sobre os dados para formatar os eventos
         foreach ($pesquisaHorarios as $horario) {
@@ -233,7 +249,11 @@ class HorarioAula extends BaseController
 
     public function carregarHorariosProfessor($idProfessor)
     {
-        $pesquisaHorarios = $this->horarioAulaModel->where('professor', $idProfessor)->findAll();
+        $pesquisaHorarios = $this->horarioAulaModel
+            ->where('professor', $idProfessor)
+            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->findAll();
+
         $horarios = [];
 
         // Itera sobre os dados para formatar os eventos
@@ -263,7 +283,11 @@ class HorarioAula extends BaseController
     }
     public function carregarHorariosSala($idSala)
     {
-        $pesquisaHorarios = $this->horarioAulaModel->where('id_sala', $idSala)->findAll();
+        $pesquisaHorarios = $this->horarioAulaModel
+        ->where('id_sala', $idSala)
+        ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+        ->findAll();
+        
         $horarios = [];
 
         // Itera sobre os dados para formatar os eventos
@@ -300,6 +324,7 @@ class HorarioAula extends BaseController
         $conflitoProfessor = $this->horarioAulaModel
             ->where('professor', $evento['professor'])
             ->where('dia_semana', $evento['dia_semana'])
+            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
             ->where('id_horario_aula !=', $evento['id_horario_aula'])
             ->groupStart() // Agrupa as condições para verificar sobreposição de horário
             ->where('horario_inicio <', $evento['horario_fim'])
@@ -307,7 +332,6 @@ class HorarioAula extends BaseController
             ->groupEnd()
             ->countAllResults();
 
-        // log_message('debug', json_encode($conflitoProfessor));
         if ($conflitoProfessor > 0) {
             return $this->response->setJSON([
                 'conflito' => true,
@@ -320,6 +344,7 @@ class HorarioAula extends BaseController
         $conflitoSala = $this->horarioAulaModel
             ->where('id_sala', $evento['id_sala'])
             ->where('dia_semana', $evento['dia_semana'])
+            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
             ->where('id_horario_aula !=', $evento['id_horario_aula'])
             ->groupStart() // Agrupa as condições para verificar sobreposição de horário
             ->where('horario_inicio <', $evento['horario_fim'])

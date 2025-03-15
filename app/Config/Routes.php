@@ -29,8 +29,8 @@ $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     // Turma
     $routes->get('/turma', 'Turma::listarTurma', ['as' => 'listarTurma']);
     $routes->post('/turma/salvar', 'Turma::salvarTurma', ['as' => 'salvarTurma']);
-    $routes->get('/turma/editar/(:alphanum)', 'Turma::editarTurma/$1', ['as' => 'editarTurma']);
-    $routes->get('/turma/deletar/(:alphanum)', 'Turma::deletarTurma/$1', ['as' => 'deletarTurma']);
+    $routes->get('/turma/editar/(:any)', 'Turma::editarTurma/$1', ['as' => 'editarTurma']);
+    $routes->get('/turma/deletar/(:any)', 'Turma::deletarTurma/$1', ['as' => 'deletarTurma']);
 
     // Sala
     $routes->get('/sala', 'Sala::listarSala', ['as' => 'listarSala']);
@@ -43,10 +43,10 @@ $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     $routes->get('/lista-horario-aula', 'HorarioAula::listaHorarioAula', ['as' => 'listaHorarioAula']);
     $routes->get('/horario-aula', 'HorarioAula::horarioAula', ['as' => 'horarioAula']);
     $routes->post('/horario-aula/salvar', 'HorarioAula::salvarHorarioAula', ['as' => 'salvarHorarioAula']);
-    $routes->get('/horario-aula/editar/(:alphanum)', 'HorarioAula::editarHorarioAula/$1', ['as' => 'editarHorarioAula']);
+    $routes->get('/horario-aula/editar/(:any)', 'HorarioAula::editarHorarioAula/$1', ['as' => 'editarHorarioAula']);
     $routes->delete('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
     $routes->get('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
-    $routes->get('/horario-aula/carregar-horarios/(:alphanum)', 'HorarioAula::carregarHorarios/$1', ['as' => 'carregarHorarios']);
+    $routes->get('/horario-aula/carregar-horarios/(:any)', 'HorarioAula::carregarHorarios/$1', ['as' => 'carregarHorarios']);
     $routes->post('/horario-aula/verificar-conflitos', 'HorarioAula::verificarConflitos', ['as' => 'verificarConflitos']);
 
 

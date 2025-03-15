@@ -41,6 +41,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Código</label>
                                 <input name="codigo_turma" type="text" class="form-control" value="<?= $turma['codigo_turma'] ?? '' ?>" required>
+                                <input type="hidden" name="codigo_turma_original" value="<?= $turma['codigo_turma'] ?? '' ?>">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nome</label>

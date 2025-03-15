@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  // Observa mudanças na área do calendário
+  const observer = new MutationObserver(() => ajustarTamanhoFonte());
+  observer.observe(document.querySelector('#calendar'), { childList: true, subtree: true });
+
   const trashEl = document.getElementById('external-events');
 
 
@@ -105,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initialDate: '2024-11-18',
     locale: 'pt-br',
     slotMinTime: '01:00:00', // Ajuste conforme sua preferência para começar em 1
-    slotMaxTime: '7:00:00',  // Ajuste para terminar no horário desejado
+    slotMaxTime: '18:00:00',  // Ajuste para terminar no horário desejado
     dayHeaderFormat: { weekday: 'long' },
     slotDuration: '01:00:00',
     allDaySlot: false,
@@ -115,11 +119,16 @@ document.addEventListener('DOMContentLoaded', function () {
     droppable: true, // this allows things to be dropped onto the calendar
     events: eventsUrl, // Define a URL de eventos dinamicamente
 
-
     eventClick: function (info) {
 
       // Captura os dados do evento clicado
       const event = info.event;
+
+      // Se já existir uma instância do offcanvas, feche-a
+      const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasDisciplina);
+      if (offcanvasInstance) {
+        offcanvasInstance.hide();
+      }
 
       // Preenche os campos do Offcanvas
       document.getElementById('offcanvasNomeDisciplina').innerText = event.title || 'Evento sem título';
@@ -147,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       eventEnd = parseInt(arg.date.getHours()) + parseInt(arg.draggedEl.getAttribute('data-duration'));
 
-      const maxEndTime = 7;
+      const maxEndTime = 18;
 
       // Verifica se o evento solto ultrapassa o horário limite
       if (eventEnd > maxEndTime) {
@@ -163,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
     eventDrop: function (info) {
 
       const maxEndTime = new Date(info.event.start);
-      maxEndTime.setHours(7, 0, 0, 0); // Define o limite de 7:00
+      maxEndTime.setHours(18, 0, 0, 0); // Define o limite de 18:00
 
       // Verifica se o fim do evento ultrapassa o limite
       if (info.event.end && info.event.end.getTime() > maxEndTime.getTime()) {
@@ -180,26 +189,30 @@ document.addEventListener('DOMContentLoaded', function () {
     },
 
     eventContent: function (arg) {
+
       // Criar título com classe Bootstrap
       let titleEl = document.createElement('div');
       titleEl.textContent = arg.event.title;
-      // titleEl.classList.add('fw-bold', 'text-primary', 'mb-1'); // Negrito e azul
+      titleEl.classList.add('event-title'); // Classe para o título
 
       // Criar professor com classe Bootstrap
       let professorEl = document.createElement('div');
       let idProfessor = arg.event.extendedProps.professor; // O ID da professor
       let nomeProfessor = professorMap[idProfessor]
-      professorEl.textContent = 'Professor: ' + (nomeProfessor || 'Sem professor');
-      // professorEl.classList.add('text-muted', 'mb-1'); // Texto cinza
+      // professorEl.textContent = 'Professor: ' + (nomeProfessor || 'Sem professor');
+
+      professorEl.innerHTML = `<span class="detail-label">Professor:</span> <span class="detail-value">${nomeProfessor || "Indefinido"}</span>`;
+      professorEl.classList.add('event-detail'); // Classe para detalhes
+
 
       // Criar sala com classe Bootstrap
 
       let salaEl = document.createElement('div');
       let idSala = arg.event.extendedProps.sala; // O ID da sala
       let nomeSala = salaMap[idSala]
-      salaEl.textContent = 'Sala: ' + (nomeSala || 'Sem sala');
 
-      // salaEl.classList.add('text-muted'); // Texto cinza
+      salaEl.innerHTML = `<span class="detail-label">Sala:</span> <span class="detail-value">${nomeSala || "Indefinido"}</span>`;
+      salaEl.classList.add('event-detail'); // Classe para detalhes
 
       // Criar o elemento principal do evento
       let eventElement = document.createElement('a');
@@ -299,6 +312,103 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => location.reload(), tempo);
   }
 
+
+  function exportarCalendarioParaPDF() {
+    const elementoCalendario = document.querySelector('#calendar');
+
+    html2canvas(elementoCalendario, { scale: 2 }).then(canvas => {
+      const imagemDados = canvas.toDataURL('image/png');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({
+        orientation: "landscape",
+        unit: "mm",
+        format: "a4"
+      });
+
+      // Definir margens
+      const margem = 10; // Margem de 10mm em todos os lados
+      const alturaTitulo = 10; // Altura do título
+      const larguraOriginalPDF = pdf.internal.pageSize.getWidth()
+      const larguraPDF = larguraOriginalPDF - 2 * margem;
+      const alturaPDF = pdf.internal.pageSize.getHeight() - 2 * margem - alturaTitulo;
+
+      // Dimensões da imagem original
+      const larguraImagem = canvas.width;
+      const alturaImagem = canvas.height;
+
+      // Redimensionar mantendo a proporção
+      const fatorEscala = Math.min(larguraPDF / larguraImagem, alturaPDF / alturaImagem);
+      const larguraFinal = larguraImagem * fatorEscala;
+      const alturaFinal = alturaImagem * fatorEscala;
+
+      const posicaoInicialCalendario = (larguraOriginalPDF - larguraFinal) / 2;
+
+      const elementoTurma = document.getElementById("turma");
+      const turma = elementoTurma.options[elementoTurma.selectedIndex].text;
+
+      const titulo = "Horário da turma: " + turma;
+      const larguraTitulo = pdf.getTextWidth(titulo);
+      const posicaoInicialTitulo = (larguraOriginalPDF - larguraTitulo) / 2;
+
+
+      // Adiciona o título ao PDF
+      pdf.setFontSize(18);
+      pdf.setFont("helvetica", "bold");
+      pdf.text(titulo, posicaoInicialTitulo, margem + 5);
+
+
+
+      // Adiciona a imagem ao PDF abaixo do título
+      pdf.addImage(imagemDados, 'PNG', posicaoInicialCalendario, margem + alturaTitulo, larguraFinal, alturaFinal);
+
+      // Salva o PDF
+      pdf.save(turma + '.pdf');
+    });
+  }
+
+  function ajustarTamanhoFonte() {
+    const eventos = document.querySelectorAll('.fc-event-main');
+
+    eventos.forEach(evento => {
+      const titulo = evento.querySelector('.event-title');
+      // const detalhe = evento.querySelector('.detail-value');
+      const detalhes = evento.querySelectorAll('.detail-value');
+
+
+      const parentHeight = evento.clientHeight;
+      let tituloFontSize = parseInt(window.getComputedStyle(evento).fontSize);
+
+      while (evento.scrollHeight > parentHeight) {
+        let alterado = false;
+
+        detalhes.forEach(detalhe => {
+          let detalheFontSize = parseInt(window.getComputedStyle(detalhe).fontSize);
+          if (detalheFontSize > 15) {
+            detalheFontSize--;
+            detalhe.style.fontSize = `${detalheFontSize}px`;
+            alterado = true;
+          }
+        });
+
+        if (!alterado) break;
+      }
+      while (evento.scrollHeight > parentHeight && tituloFontSize > 15) {
+        tituloFontSize--;
+        titulo.style.fontSize = `${tituloFontSize}px`;
+        titulo.style.marginBottom = "0";
+      }
+
+
+      //Se mesmo assim não couber, adiciona reticências no título
+      if (evento.scrollHeight > parentHeight) {
+        titulo.style.whiteSpace = "nowrap";
+        titulo.style.overflow = "hidden";
+        titulo.style.textOverflow = "ellipsis";
+      }
+    });
+  }
+
+  document.getElementById('exportarPDF').addEventListener('click', exportarCalendarioParaPDF);
 
   document.getElementById('save-events').addEventListener('click', function () {
 

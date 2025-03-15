@@ -5,8 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usuário</title>
-    <!-- <title><?= $title ?? 'Sistema de horários' ?></title> -->
+    <title><?= $title ?? 'Sistema de horários' ?></title>
 
     <link rel="stylesheet" href="<?= base_url('assets/datatables/css/dataTables.bootstrap5.min.css') ?>">
 
@@ -67,13 +66,11 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted">
             <div class="float-start">
-                <p>2021 &copy; Mazer</p>
+                <p>2024 &copy; Mazer</p>
             </div>
             <div class="float-end">
                 <p>
-                    Crafted with
-                    <span class="text-danger"><i class="bi bi-heart"></i></span> by
-                    <a href="https://saugi.me">Saugi</a>
+                    Criado por Marcelo
                 </p>
             </div>
         </div>
@@ -117,6 +114,10 @@
     <!-- SweetAlert -->
     <script src="<?= base_url('assets/mazer/js/sweetalert2.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/sweetalert2.js') ?>"></script>
+
+    <!-- Certifique-se de incluir as bibliotecas no seu HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 </body>
 
