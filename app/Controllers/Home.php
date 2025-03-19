@@ -26,20 +26,18 @@ class Home extends BaseController
 
     public function index()
     {
-
         $data['totalRegistros'] = $this->totalRegistros();
 
-        return view('index', $data);
+        if (auth()->loggedIn()) {
+            return view('index', $data); // Página para admins
+        }
+
+        return redirect()->route('horarioAulaPublico');       
     }
 
     public function teste(){
-        // $data['usuarios'] = $this->usuarioModel->findAll();
 
-        // return view('teste', $data);
-
-        $user = auth()->user();
-
-        var_dump($user);
+        return view('teste');
     }
 
     public function totalRegistros()

@@ -126,6 +126,26 @@ class HorarioAula extends BaseController
         return view('horario_aula', $data);
     }
 
+    public function horarioAulaPublico()
+    {
+        $data['disciplinas'] = $this->disciplinaModel->findAll();
+        $data['salas'] = $this->salaModel->findAll();
+
+        //retorna todos os professores
+        $data['professores'] = $this->buscarProfessores();
+
+        // Buscar o registro onde a coluna 'ativo' é 1 no periodoLetivoModel
+        $data['periodoAtivo'] = $this->periodoLetivoModel->where('ativo', 1)->first();
+
+        // Obter todas as turmas que não têm registros na tabela horario_aula
+        $data['turmas'] = $this->turmaModel->whereIn('codigo_turma', function ($query) {
+            $query->select('codigo_turma')
+                ->from('horario_aula');
+        })->findAll();
+
+        return view('horario_aula_publico', $data);
+    }
+
     public function horarioProfessor()
     {
         //retorna todos os professores

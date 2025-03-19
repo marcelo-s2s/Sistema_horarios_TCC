@@ -76,12 +76,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         eventos.forEach(evento => {
             const titulo = evento.querySelector('.event-title');
-            // const detalhe = evento.querySelector('.detail-value');
-            const detalhes = evento.querySelectorAll('.detail-value');
+            const detalhes = evento.querySelectorAll('.event-detail');
 
 
             const parentHeight = evento.clientHeight;
             let tituloFontSize = parseInt(window.getComputedStyle(evento).fontSize);
+
+            while (evento.scrollHeight > parentHeight && tituloFontSize > 15) {
+                tituloFontSize--;
+                titulo.style.fontSize = `${tituloFontSize}px`;
+                titulo.style.marginBottom = "0";
+            }
 
             while (evento.scrollHeight > parentHeight) {
                 let alterado = false;
@@ -91,16 +96,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (detalheFontSize > 15) {
                         detalheFontSize--;
                         detalhe.style.fontSize = `${detalheFontSize}px`;
+                        evento.style.lineHeight = '1';
                         alterado = true;
                     }
                 });
 
                 if (!alterado) break;
-            }
-            while (evento.scrollHeight > parentHeight && tituloFontSize > 15) {
-                tituloFontSize--;
-                titulo.style.fontSize = `${tituloFontSize}px`;
-                titulo.style.marginBottom = "0";
             }
 
 
@@ -109,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 titulo.style.whiteSpace = "nowrap";
                 titulo.style.overflow = "hidden";
                 titulo.style.textOverflow = "ellipsis";
+
             }
         });
     }

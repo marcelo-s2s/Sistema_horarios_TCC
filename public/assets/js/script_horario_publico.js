@@ -1,16 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const salaMap = {};
+    salas.forEach(sala => {
+        salaMap[sala.id_sala] = sala.nome_sala;
+    });
+
+    const professorMap = {};
+    professores.forEach(professor => {
+        professorMap[professor.id_usuario] = professor.nome;
+    });
+
     // Define uma URL padrão para eventsUrl
-    var eventsUrl = '/horario-aula/carregar-horarios-professor/default';
+    var eventsUrl = '/horario-aula/carregar-horarios/default';
 
-    // Listener para mudanças no campo professor
-    document.getElementById('professor').addEventListener('change', function () {
+    // Listener para mudanças no campo turma
+    document.getElementById('turma').addEventListener('change', function () {
 
-        const professor = this.value; // Novo valor do professor
-        eventsUrl = '/horario-aula/carregar-horarios-professor/' + professor; // Atualiza a URL
+        const turma = this.value; // Novo valor da turma
+        eventsUrl = '/horario-aula/carregar-horarios/' + turma; // Atualiza a URL
         calendar.refetchEvents(); // Recarrega os eventos do calendário
 
-        // Remove a opção "Selecione um professor" após a mudança
+        // Remove a opção "Selecione um turma" após a mudança
         const defaultOption = this.querySelector('option[value=""]');
         if (defaultOption) {
             defaultOption.remove();
@@ -154,21 +164,25 @@ document.addEventListener('DOMContentLoaded', function () {
             titleEl.textContent = arg.event.title;
             titleEl.classList.add('event-title'); // Classe para o título
 
-            let turmaEl = document.createElement('div');
-            let nomeTurma = arg.event.extendedProps.turma;
+            // Criar professor com classe Bootstrap
+            let professorEl = document.createElement('div');
+            let idProfessor = arg.event.extendedProps.professor; // O ID da professor
+            let nomeProfessor = professorMap[idProfessor]
+            // professorEl.textContent = 'Professor: ' + (nomeProfessor || 'Sem professor');
 
-            turmaEl.innerHTML = `<span class="detail-label">Turma:</span> <span class="detail-value">${nomeTurma || "Indefinido"}</span>`;
-            turmaEl.classList.add('event-detail'); // Classe para detalhes
+            professorEl.innerHTML = `<span class="detail-label">Professor:</span> <span class="detail-value">${nomeProfessor || "Indefinido"}</span>`;
+            professorEl.classList.add('event-detail'); // Classe para detalhes
 
             // Criar sala com classe Bootstrap
             let salaEl = document.createElement('div');
-            let nomeSala = arg.event.extendedProps.sala; // O ID da sala
+            let idSala = arg.event.extendedProps.sala; // O ID da sala
+            let nomeSala = salaMap[idSala]
 
             salaEl.innerHTML = `<span class="detail-label">Sala:</span> <span class="detail-value">${nomeSala || "Indefinido"}</span>`;
             salaEl.classList.add('event-detail'); // Classe para detalhes
 
             // Retornar os elementos como um array
-            return { domNodes: [titleEl, turmaEl, salaEl] };
+            return { domNodes: [titleEl, professorEl, salaEl] };
         },
 
 

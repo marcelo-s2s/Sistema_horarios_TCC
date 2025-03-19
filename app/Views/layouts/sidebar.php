@@ -23,15 +23,9 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="<?= url_to('horarioProfessor') ?>">
-                        <i class="fa-solid fa-person-chalkboard fa-lg"></i>
-                        <span>Professores</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="<?= url_to('horarioSala') ?>">
+                    <a class="sidebar-link" href="<?= url_to('horarioAulaPublico') ?>">
                         <i class="fa-solid fa-people-roof fa-lg"></i>
-                        <span>Horário de Sala</span>
+                        <span>Horário de Aula</span>
                     </a>
                 </li>
             </ul>

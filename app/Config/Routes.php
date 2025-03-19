@@ -8,30 +8,26 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Home::index', ['as' => 'index']);
 
-//Horários de Professores
-$routes->get('/horario-aula/professor', 'HorarioAula::horarioProfessor', ['as' => 'horarioProfessor']);
-$routes->get('/horario-aula/carregar-horarios-professor/(:alphanum)', 'HorarioAula::carregarHorariosProfessor/$1', ['as' => 'carregarHorariosProfessor']);
+$routes->get('/horario-aula/carregar-horarios/(:any)', 'HorarioAula::carregarHorarios/$1', ['as' => 'carregarHorarios']);
+$routes->get('/horario-aula-publico', 'HorarioAula::horarioAulaPublico', ['as' => 'horarioAulaPublico']);
 
-//Horários de Salas
-$routes->get('/horario-aula/sala', 'HorarioAula::horarioSala', ['as' => 'horarioSala']);
-$routes->get('/horario-aula/carregar-horarios-sala/(:alphanum)', 'HorarioAula::carregarHorariosSala/$1', ['as' => 'carregarHorariosSala']);
 
 $routes->get('/teste', 'Home::teste', ['as' => 'teste']);
 
 $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
-
+    
     // Usuário
     $routes->get('/usuario', 'Usuario::listarUsuario', ['as' => 'listarUsuario']);
     $routes->post('/usuario/salvar', 'Usuario::salvarUsuario', ['as' => 'salvarUsuario']);
     $routes->get('/usuario/editar/(:num)', 'Usuario::editarUsuario/$1', ['as' => 'editarUsuario']);
     $routes->get('/usuario/deletar/(:num)', 'Usuario::deletarUsuario/$1', ['as' => 'deletarUsuario']);
-
+    
     // Turma
     $routes->get('/turma', 'Turma::listarTurma', ['as' => 'listarTurma']);
     $routes->post('/turma/salvar', 'Turma::salvarTurma', ['as' => 'salvarTurma']);
     $routes->get('/turma/editar/(:any)', 'Turma::editarTurma/$1', ['as' => 'editarTurma']);
     $routes->get('/turma/deletar/(:any)', 'Turma::deletarTurma/$1', ['as' => 'deletarTurma']);
-
+    
     // Sala
     $routes->get('/sala', 'Sala::listarSala', ['as' => 'listarSala']);
     $routes->post('/sala/salvar', 'Sala::salvarSala', ['as' => 'salvarSala']);
@@ -46,16 +42,22 @@ $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     $routes->get('/horario-aula/editar/(:any)', 'HorarioAula::editarHorarioAula/$1', ['as' => 'editarHorarioAula']);
     $routes->delete('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
     $routes->get('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
-    $routes->get('/horario-aula/carregar-horarios/(:any)', 'HorarioAula::carregarHorarios/$1', ['as' => 'carregarHorarios']);
     $routes->post('/horario-aula/verificar-conflitos', 'HorarioAula::verificarConflitos', ['as' => 'verificarConflitos']);
-
-
+    
+    //Horários de Professores
+    $routes->get('/horario-aula/professor', 'HorarioAula::horarioProfessor', ['as' => 'horarioProfessor']);
+    $routes->get('/horario-aula/carregar-horarios-professor/(:alphanum)', 'HorarioAula::carregarHorariosProfessor/$1', ['as' => 'carregarHorariosProfessor']);
+    
+    //Horários de Salas
+    $routes->get('/horario-aula/sala', 'HorarioAula::horarioSala', ['as' => 'horarioSala']);
+    $routes->get('/horario-aula/carregar-horarios-sala/(:alphanum)', 'HorarioAula::carregarHorariosSala/$1', ['as' => 'carregarHorariosSala']);
+    
     // Disciplina
     $routes->get('/disciplina', 'Disciplina::listarDisciplina', ['as' => 'listarDisciplina']);
     $routes->post('/disciplina/salvar', 'Disciplina::salvarDisciplina', ['as' => 'salvarDisciplina']);
     $routes->get('/disciplina/editar/(:num)', 'Disciplina::editarDisciplina/$1', ['as' => 'editarDisciplina']);
     $routes->get('/disciplina/deletar/(:num)', 'Disciplina::deletarDisciplina/$1', ['as' => 'deletarDisciplina']);
-   
+    
     // Periodo
     $routes->get('/periodo', 'PeriodoLetivo::listarPeriodo', ['as' => 'listarPeriodo']);
     $routes->post('/periodo/salvar', 'PeriodoLetivo::salvarPeriodo', ['as' => 'salvarPeriodo']);

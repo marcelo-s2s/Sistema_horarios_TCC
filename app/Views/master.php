@@ -32,11 +32,42 @@
 
 
     <?= $this->renderSection('css') ?>
+
+    <style>
+        /* Splash screen ocupa a tela toda */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Esconde o conteúdo até que a página carregue */
+        #main-content {
+            display: none;
+        }
+        
+    </style>
 </head>
 
 <body>
 
-    <div id="app">
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="spinner-border text-success" role="status">
+            <span class="visually-hidden">Carregando...</span>
+        </div>
+        <h2 class="mt-3 text-success">Carregando...</h2>
+    </div>
+
+    <div id="app" class="hidden">
 
         <?php
         $user = auth()->user();
@@ -84,6 +115,14 @@
             success: <?= json_encode(session()->getFlashdata('success')); ?>,
             error: <?= json_encode(session()->getFlashdata('error')); ?>
         };
+
+        // Aguarda o carregamento da página
+        window.addEventListener("load", function() {
+            setTimeout(() => {
+                document.getElementById("splash-screen").style.display = "none"; // Esconde splash
+                document.getElementById("main-content").style.display = "block"; // Mostra conteúdo
+            }, 1); // Pequeno delay para suavizar a transição
+        });
     </script>
 
     <!-- Alterna entre tema escuro e claro -->
