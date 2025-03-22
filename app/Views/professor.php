@@ -26,55 +26,49 @@
     </div>
     <section class="section">
         <div class="row">
+
             <!-- Formulário de inserção ou atualização -->
             <div class="col-md-4">
 
-                <?php if ($alerta = session()->getFlashdata('alerta')): ?>
-                    <div class="alert alert-<?= esc($alerta['tipo']) ?> alert-dismissible fade show" role="alert">
-                        <strong><i class="fa fa-<?= $alerta['tipo'] === 'success' ? 'check' : 'ban' ?>"></i> <?= ucfirst($alerta['titulo']) ?>:</strong>
-                        <?= esc($alerta['mensagem']) ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                <?php endif; ?>
-
                 <div class="card shadow">
-                    <div class="card-header">
-                        <h3 class="card-title"><?= isset($usuario) ? 'Atualizar' : 'Novo' ?> Professor</h3>
-                    </div>
 
-                    <?= form_open(url_to('salvarUsuario'), ['role' => 'form']) ?>
+                    <div class="card-header">
+                        <h3 class="card-title"><?= isset($professor) ? 'Atualizar' : 'Novo' ?> Professor</h3>
+                    </div>
 
                     <div class="card-body">
-                        <?php if (isset($usuario)): ?>
-                            <div class="mb-3">
-                                <label class="form-label">ID</label>
-                                <input name="id_usuario" type="text" class="form-control" value="<?= esc($usuario['id_usuario']) ?>" readonly>
-                            </div>
-                        <?php endif; ?>
+                        <?= form_open(url_to('salvarUsuario'), ['role' => 'form']) ?>
 
-                        <div class="mb-3">
-                            <label class="form-label">Nome</label>
-                            <input name="nome" type="text" class="form-control" value="<?= $usuario['nome'] ?? '' ?>" required>
+                        <div class="form-body">
+
+                            <input type="hidden" name="tipo_usuario" value="professor">
+                            <?= isset($professor) ? "
+                                <div class='mb-3'> 
+                                    <label class='form-label'>ID</label> 
+                                    <input name='id' type='text' class='form-control' value='" . esc($professor->id) . "' readonly> 
+                                </div>" : "" ?>
+                            <div class="mb-3">
+                                <label class="form-label">Nome</label>
+                                <input name="username" type="text" class="form-control" value="<?= $professor->username ?? '' ?>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">E-mail</label>
+                                <input name="email" type="email" class="form-control" value="<?= $professor->email ?? '' ?>" required>
+                            </div>
+                            <?php if (!isset($professor)): ?>
+                                <div class="mb-3">
+                                    <label class="form-label">Senha</label>
+                                    <input name="password" type="password" class="form-control" value="<?= $professor->password ?? '' ?>">
+                                </div>
+                            <?php endif; ?>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">E-mail</label>
-                            <input name="email" type="email" class="form-control" value="<?= $usuario['email'] ?? '' ?>" required>
+
+                        <div class="form-actions d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Senha</label>
-                            <input name="senha" type="password" class="form-control" value="<?= $usuario['senha'] ?? '' ?>" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tipo de Usuário</label>
-                            <select name="tipo_usuario" class="form-select">
-                                <option value="professor" selected>Professor</option>
-                            </select>
-                        </div>
+
+                        <?= form_close() ?>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                    <?= form_close() ?>
                 </div>
             </div>
 
@@ -89,27 +83,23 @@
                             <table id="table1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Nome</th>
                                         <th>E-mail</th>
-                                        <th>Senha</th>
                                         <th>Data de Cadastro</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($usuarios as $usuario): ?>
+                                    <?php foreach ($professores as $professor): ?>
                                         <tr>
-                                            <td><?= esc($usuario['id_usuario']) ?></td>
-                                            <td><?= esc($usuario['nome']) ?></td>
-                                            <td><?= esc($usuario['email']) ?></td>
-                                            <td><?= esc($usuario['senha']) ?></td>
-                                            <td><?= esc($usuario['data_cadastro']) ?></td>
+                                            <td><?= esc($professor['nome']) ?></td>
+                                            <td><?= esc($professor['email']) ?></td>
+                                            <td><?= esc($professor['data_cadastro']) ?></td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="<?= url_to('editarUsuario', esc($usuario['id_usuario'])) ?>" class="btn btn-warning btn-sm">Editar</a>
+                                                    <a href="<?= url_to('editarProfessor', esc($professor['id_usuario'])) ?>" class="btn btn-warning btn-sm">Editar</a>
                                                     <a href="#" class="btn btn-danger btn-sm"
-                                                        onclick="confirmarDelecao('/usuario/deletar/<?= esc($usuario['id_usuario']) ?>')">Deletar</a>
+                                                        onclick="confirmarDelecao('/usuario/deletar/<?= esc($professor['id_usuario']) ?>')">Deletar</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -120,8 +110,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </section>
 </div>
 

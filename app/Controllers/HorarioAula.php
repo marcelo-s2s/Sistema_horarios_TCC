@@ -123,6 +123,12 @@ class HorarioAula extends BaseController
                 ->from('horario_aula');
         })->findAll();
 
+        if(!$data['turmas']){
+
+            $this->session->setFlashdata('error', 'Todas as turmas já possuem horario de aula');
+            return redirect()->back();
+        }
+
         return view('horario_aula', $data);
     }
 
@@ -304,10 +310,10 @@ class HorarioAula extends BaseController
     public function carregarHorariosSala($idSala)
     {
         $pesquisaHorarios = $this->horarioAulaModel
-        ->where('id_sala', $idSala)
-        ->where('periodo_letivo', $this->verificarPeriodoAtivo())
-        ->findAll();
-        
+            ->where('id_sala', $idSala)
+            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->findAll();
+
         $horarios = [];
 
         // Itera sobre os dados para formatar os eventos
@@ -334,6 +340,24 @@ class HorarioAula extends BaseController
             ];
         }
         return $this->response->setJSON($horarios);
+    }
+
+    public function retornarConflitos()
+    {
+        // Recebe os dados enviados (certifique-se de que o Content-Type seja application/json)
+        $evento = $this->request->getJSON(true);
+
+        // Consulta o banco para pegar os horários ocupados
+        $horariosOcupados = $this->horarioAulaModel
+            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->where('id_horario_aula !=', $evento['idHorarioAula'])
+            ->groupStart()
+            ->where('id_sala', $evento['id_sala'])
+            ->orWhere('professor', $evento['professor'])
+            ->groupEnd()
+            ->findAll();
+
+        return $this->response->setJSON(['horariosOcupados' => $horariosOcupados]);
     }
 
     public function verificarConflitos()

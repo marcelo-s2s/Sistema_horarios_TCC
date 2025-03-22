@@ -6,6 +6,6 @@ let table1 = $("#table1").DataTable({
     'info': true,
     'autoWidth': false,
     language: {
-        url: 'assets/css/teste/pt-BR.json',
+        url: 'assets/datatables/js/pt-BR.json',
     },
 });

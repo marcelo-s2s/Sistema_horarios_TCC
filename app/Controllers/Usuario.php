@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\HorarioAulaModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Shield\Entities\User;
 
@@ -11,11 +12,13 @@ class Usuario extends BaseController
 
     private $session;
     private $usuarioModel;
+    private $horarioAulaModel;
 
     public function __construct()
     {
 
         $this->session = session();
+        $this->horarioAulaModel = new HorarioAulaModel();
         $this->usuarioModel = auth()->getProvider();
     }
 
@@ -41,13 +44,49 @@ class Usuario extends BaseController
         return $usuarios;
     }
 
+    public function buscarProfessor()
+    {
+        //retorna todos os professores
+        $dadosProfessores = $this->usuarioModel->whereIn('id', function ($query) {
+            $query->select('user_id')
+                ->from('auth_groups_users')
+                ->where('group', 'professor');
+        })->findAll();
+
+        // Inicializa o array de usuários
+        $professores = [];
+
+        // var_dump($dadosProfessores);
+        // die;
+
+        // Itera sobre os resultados para formatar os dados antes de passar para a view.
+        foreach ($dadosProfessores as $dadosProfessor) {
+            $professores[] = [
+                'id_usuario' => $dadosProfessor->id, // ID do usuário.
+                'nome' => $dadosProfessor->username, // Nome de usuário.
+                'data_cadastro' => $dadosProfessor->created_at->toDateTimeString(), // Data de cadastro formatada como string.
+                'tipo_usuario' => $dadosProfessor->group, // Grupo ao qual o usuário pertence.
+                'email' => $dadosProfessor->email, // E-mail ou credencial armazenada em auth_identities.
+            ];
+        }
+
+        return $professores;
+    }
+
     public function listarUsuario()
     {
-        //Prepara as informações para serem mandadas para a view
         $data['usuarios'] = $this->buscarUsuario();
 
         // Retorna a view 'usuario' com os dados formatados.
         return view('usuario', $data);
+    }
+
+    public function listarProfessor()
+    {
+        $data['professores'] = $this->buscarProfessor();
+
+        // Retorna a view 'usuario' com os dados formatados.
+        return view('professor', $data);
     }
 
     public function salvarUsuario()
@@ -80,8 +119,7 @@ class Usuario extends BaseController
             $this->session->setFlashdata('error', 'Erro ao salvar usuário');
         }
 
-
-        return redirect()->route('listarUsuario');
+        return redirect()->back();
     }
 
     public function editarUsuario($id_usuario)
@@ -93,8 +131,26 @@ class Usuario extends BaseController
         return view('usuario', $data);
     }
 
+    public function editarProfessor($id_usuario)
+    {
+
+        $data['professor'] = $this->usuarioModel->findById($id_usuario);
+        $data['professores'] = $this->buscarProfessor();
+
+        return view('professor', $data);
+    }
+
     public function deletarUsuario($id_usuario)
     {
+        $professorHorario = $this->horarioAulaModel
+            ->where('professor', $id_usuario)
+            ->countAllResults();
+
+        if ($professorHorario > 0) {
+            $this->session->setFlashdata('error', 'Não é possível excluir este professor, pois ele está associado a um horário.');
+            return redirect()->back();
+        }
+
         try {
             // Tenta excluir o usuario
             if ($this->usuarioModel->delete($id_usuario, true)) {
@@ -104,13 +160,11 @@ class Usuario extends BaseController
 
                 $this->session->setFlashdata('error', 'Usuário não apagado');
             }
-        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+        } catch (\Exception $e) {
 
-            // Captura o erro de chave estrangeira ou qualquer outro erro do banco de dados
-            log_message('error', 'Erro ao tentar excluir usuário: ' . $e->getMessage());
-            $this->session->setFlashdata('error', 'Não é possível excluir este usuário, pois ela está associada a um horário.');
+            $this->session->setFlashdata('error', 'Usuário não apagado');
         }
 
-        return redirect()->route('listarUsuario');
+        return redirect()->back();
     }
 }

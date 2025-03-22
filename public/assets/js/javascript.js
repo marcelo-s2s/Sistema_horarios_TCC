@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const trashEl = document.getElementById('external-events');
 
-
   const salaMap = {};
   salas.forEach(sala => {
     salaMap[sala.id_sala] = sala.nome_sala;
@@ -98,6 +97,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function formatarDataHorario(diaSemana, horario) {
+
+    let dia = parseInt(diaSemana) + 17;
+    let horaFormatada = String(horario).padStart(2, "0");
+    let dataHora = `2024-11-${dia}T${horaFormatada}:00:00`;
+
+    return dataHora;
+  }
 
   // Interface do Full Calendar
   const calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
@@ -190,6 +197,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     eventContent: function (arg) {
 
+      // Se for um evento de fundo, não renderiza conteúdo
+      if (arg.event.display === 'background') {
+        return { domNodes: [] };
+      }
+
       // Criar título com classe Bootstrap
       let titleEl = document.createElement('div');
       titleEl.textContent = arg.event.title;
@@ -222,7 +234,41 @@ document.addEventListener('DOMContentLoaded', function () {
       return { domNodes: [titleEl, professorEl, salaEl, eventElement] };
     },
 
+    eventDragStart: async function (info) {
+      const evento = info.event;
+
+      // Obtenha os dados do evento
+      const id_sala = evento.extendedProps.sala;
+      const professor = evento.extendedProps.professor;
+
+      // Chama o endpoint para obter os horários ocupados
+      try {
+        const response = await fetch('/horario-aula/retornar-conflitos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id_sala, professor, idHorarioAula })
+        });
+        const data = await response.json();
+
+        data.horariosOcupados.forEach(horario => {
+
+          calendar.addEvent({
+            id: 'bg-' + horario.dia_semana + '-' + horario.horario_inicio,
+            start: formatarDataHorario(horario.dia_semana, horario.horario_inicio),
+            end: formatarDataHorario(horario.dia_semana, horario.horario_fim),
+            display: 'background',
+            backgroundColor: '#ffb0b0'
+          });
+
+        });
+        // });
+      } catch (error) {
+        console.error('Erro ao buscar horários ocupados:', error);
+      }
+    },
+
     eventDragStop: function (info) {
+
       // Verifica se o evento foi arrastado até a lixeira
       const trashBounds = trashEl.getBoundingClientRect();
       const eventBounds = info.jsEvent;
@@ -236,7 +282,17 @@ document.addEventListener('DOMContentLoaded', function () {
         // Remove o evento do calendário
         calendar.getEventById(info.event.id).remove();
       }
-    }
+
+      // Itera por todos os eventos do calendário
+      calendar.getEvents().forEach(function (event) {
+        // Se o ID do evento começa com 'bg-', remova-o
+        if (event.id && event.id.startsWith('bg-')) {
+          event.remove();
+        }
+      });
+
+
+    },
 
   });
   calendar.render();
@@ -376,13 +432,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const parentHeight = evento.clientHeight;
       let tituloFontSize = parseInt(window.getComputedStyle(evento).fontSize);
-      
+
       while (evento.scrollHeight > parentHeight && tituloFontSize > 15) {
         tituloFontSize--;
         titulo.style.fontSize = `${tituloFontSize}px`;
         titulo.style.marginBottom = "0";
       }
-      
+
       while (evento.scrollHeight > parentHeight) {
         let alterado = false;
 
@@ -489,7 +545,6 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Erro: ' + error.message);
       });
   });
-
 });
 
 

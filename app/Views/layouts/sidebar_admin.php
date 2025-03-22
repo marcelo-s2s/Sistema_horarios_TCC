@@ -43,6 +43,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= url_to('listarProfessor') ?>">
+                        <i class="fa-solid fa-chalkboard-user fa-lg"></i>
+                        <span>Professores</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="<?= url_to('listarSala') ?>">
                         <i class="fa-solid fa-chalkboard fa-lg"></i>
                         <span>Salas</span>

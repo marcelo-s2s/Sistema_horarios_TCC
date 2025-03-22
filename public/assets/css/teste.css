@@ -1,0 +1,31 @@
+#calendar-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+#external-events {
+    width: 200px;
+    padding: 10px;
+    background: #f5f5f5;
+}
+
+.fc-event {
+    margin: 5px 0;
+    padding: 8px;
+    background: #2196F3;
+    color: white;
+}
+
+.fc-timeline-slot {
+    background: #fff !important;
+    border-right: 1px solid #ddd !important;
+}
+
+.fc-timeline-header {
+    background: #f8f9fa;
+}
+
+.fc-resource {
+    font-weight: bold;
+    background: #e9ecef;
+}

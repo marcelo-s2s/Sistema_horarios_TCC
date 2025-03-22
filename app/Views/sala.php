@@ -73,7 +73,6 @@
                             <table id="table1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Nome</th>
                                         <th>Ação</th>
                                     </tr>
@@ -81,7 +80,6 @@
                                 <tbody>
                                     <?php foreach ($salas as $sala): ?>
                                         <tr>
-                                            <td><?= esc($sala['id_sala']) ?></td>
                                             <td><?= esc($sala['nome_sala']) ?></td>
                                             <td>
                                                 <div class="d-flex gap-2">

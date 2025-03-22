@@ -22,6 +22,10 @@ $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     $routes->get('/usuario/editar/(:num)', 'Usuario::editarUsuario/$1', ['as' => 'editarUsuario']);
     $routes->get('/usuario/deletar/(:num)', 'Usuario::deletarUsuario/$1', ['as' => 'deletarUsuario']);
     
+    // Professor
+    $routes->get('/professor', 'Usuario::listarProfessor', ['as' => 'listarProfessor']);
+    $routes->get('/professor/editar/(:num)', 'Usuario::editarProfessor/$1', ['as' => 'editarProfessor']);
+
     // Turma
     $routes->get('/turma', 'Turma::listarTurma', ['as' => 'listarTurma']);
     $routes->post('/turma/salvar', 'Turma::salvarTurma', ['as' => 'salvarTurma']);
@@ -34,7 +38,6 @@ $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     $routes->get('/sala/editar/(:num)', 'Sala::editarSala/$1', ['as' => 'editarSala']);
     $routes->get('/sala/deletar/(:num)', 'Sala::deletarSala/$1', ['as' => 'deletarSala']);
 
-    //Corrigir as rotas
     // Horário de aula
     $routes->get('/lista-horario-aula', 'HorarioAula::listaHorarioAula', ['as' => 'listaHorarioAula']);
     $routes->get('/horario-aula', 'HorarioAula::horarioAula', ['as' => 'horarioAula']);
@@ -43,6 +46,7 @@ $routes->group('', ['filter' => 'group:admin,superadmin'], function ($routes) {
     $routes->delete('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
     $routes->get('/horario-aula/deletar/(:alphanum)', 'HorarioAula::deletarHorarioAula/$1', ['as' => 'deletarHorarioAula']);
     $routes->post('/horario-aula/verificar-conflitos', 'HorarioAula::verificarConflitos', ['as' => 'verificarConflitos']);
+    $routes->post('/horario-aula/retornar-conflitos', 'HorarioAula::retornarConflitos', ['as' => 'retornarConflitos']);
     
     //Horários de Professores
     $routes->get('/horario-aula/professor', 'HorarioAula::horarioProfessor', ['as' => 'horarioProfessor']);

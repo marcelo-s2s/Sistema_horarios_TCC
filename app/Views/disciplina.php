@@ -107,7 +107,6 @@
                             <table id="table1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Nome</th>
                                         <th>Carga Horária</th>
                                         <th>Nível de Ensino</th>
@@ -120,7 +119,6 @@
                                 <tbody>
                                     <?php foreach ($disciplinas as $disciplina): ?>
                                         <tr>
-                                            <td><?= esc($disciplina['id_disciplina']) ?></td>
                                             <td><?= esc($disciplina['nome_disciplina']) ?></td>
                                             <td><?= esc($disciplina['carga_horaria']) ?></td>
                                             <td><?= esc($disciplina['nivel_ensino']) ?></td>
