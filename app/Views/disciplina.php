@@ -147,3 +147,10 @@
 </div>
 
 <?= $this->endSection() ?>
+
+<?= $this->section('js'); ?>
+
+<script src="<?= base_url('assets/tinycolor/js/tinycolor-min.js') ?>"></script>
+<script src="<?= base_url('assets/tinycolor/js/tinycolor.js') ?>"></script>
+
+<?= $this->endSection() ?>

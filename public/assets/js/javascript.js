@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const observer = new MutationObserver(() => ajustarTamanhoFonte());
   observer.observe(document.querySelector('#calendar'), { childList: true, subtree: true });
 
-  const trashEl = document.getElementById('external-events');
+  const trashEl = document.getElementById('container-disciplinas');
+  const disciplinas = document.getElementById("external-events");
+  const mensagem = document.getElementById("mensagem");
 
   const salaMap = {};
   salas.forEach(sala => {
@@ -104,6 +106,18 @@ document.addEventListener('DOMContentLoaded', function () {
     let dataHora = `2024-11-${dia}T${horaFormatada}:00:00`;
 
     return dataHora;
+  }
+
+  function abrirLixeira() {
+    trashEl.classList.add('movendo');
+    disciplinas.setAttribute("hidden", "true");
+    mensagem.removeAttribute("hidden");
+  }
+
+  function fecharLixeira() {
+    trashEl.classList.remove('movendo');
+    disciplinas.removeAttribute("hidden");
+    mensagem.setAttribute("hidden", "true");
   }
 
   // Interface do Full Calendar
@@ -235,6 +249,9 @@ document.addEventListener('DOMContentLoaded', function () {
     },
 
     eventDragStart: async function (info) {
+
+      abrirLixeira();
+
       const evento = info.event;
 
       // Obtenha os dados do evento
@@ -269,6 +286,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     eventDragStop: function (info) {
 
+      fecharLixeira();
+
       // Verifica se o evento foi arrastado até a lixeira
       const trashBounds = trashEl.getBoundingClientRect();
       const eventBounds = info.jsEvent;
@@ -297,50 +316,38 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   calendar.render();
 
-  document.getElementById('professor').addEventListener('change', function () {
+  $(document).on('change.select2', '#professor', function () {
     const professor = this.value; // Novo valor do professor
     const idEvent = document.getElementById('idDisciplina').getAttribute('id-disciplina');
-
-    // Localiza o evento no calendário pelo ID
-    const event = calendar.getEventById(idEvent);
+    const event = calendar.getEventById(idEvent); // Localiza o evento no calendário
 
     if (event) {
-      // Atualiza a propriedade 'professor' do evento com o novo valor
       event.setExtendedProp('professor', professor);
-
     }
-    const resposta = verificarConflitos(event);
 
-    resposta.then((resultado) => {
+    verificarConflitos(event).then((resultado) => {
       if (resultado) {
-        document.getElementById('professor').value = 'Sem professor';
+        $('#professor').val('Sem professor').trigger('change');
         event.setExtendedProp('professor', 'Sem professor');
       }
     });
-
   });
 
-  document.getElementById('sala').addEventListener('change', function () {
-    const sala = this.value; // Novo valor do sala
+  $(document).on('change.select2', '#sala', function () {
+    const sala = this.value; // Novo valor da sala
     const idEvent = document.getElementById('idDisciplina').getAttribute('id-disciplina');
-
-    // Localiza o evento no calendário pelo ID
-    const event = calendar.getEventById(idEvent);
+    const event = calendar.getEventById(idEvent); // Localiza o evento no calendário
 
     if (event) {
-      // Atualiza a propriedade 'sala' do evento com o novo valor
       event.setExtendedProp('sala', sala);
     }
 
-    const resposta = verificarConflitos(event);
-
-    resposta.then((resultado) => {
+    verificarConflitos(event).then((resultado) => {
       if (resultado) {
-        document.getElementById('sala').value = 'Sem sala';
+        $('#sala').val('Sem sala').trigger('change');
         event.setExtendedProp('sala', 'Sem sala');
       }
     });
-
   });
 
   function apagarRegistro(id) {
@@ -352,8 +359,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
       .then(response => {
         if (response.ok) {
-          // Atualize a interface, se necessário
-          location.reload(); // Recarrega a página
         } else {
           throw new Error('Erro ao apagar o registro');
         }
@@ -364,10 +369,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  function recarregarPagina(tempo) {
-    setTimeout(() => location.reload(), tempo);
+  function redirecionar(tempo) {
+    setTimeout(() => window.location.href = '/lista-horario-aula', tempo);
   }
-
 
   function exportarCalendarioParaPDF() {
     const elementoCalendario = document.querySelector('#calendar');
@@ -534,7 +538,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (data.success) {
 
           showSweetAlert("Horário salvo com sucesso", "success");
-          recarregarPagina(3000);
+          redirecionar(3000);
 
         } else {
           showSweetAlert("Erro ao salvar horários", "error");

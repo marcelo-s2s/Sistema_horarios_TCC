@@ -94,6 +94,13 @@ class Usuario extends BaseController
 
         $dadosUsuario = $this->request->getPost();
 
+        if ($this->usuarioModel->where('username', $dadosUsuario['username'])->countAllResults() > 0) {
+
+            $this->session->setFlashdata('error', 'Usuário já existe.');
+
+            return redirect()->back();
+        }
+
         // Criar entidade User
         $user = new User();
         $user->fill($dadosUsuario);
@@ -101,14 +108,17 @@ class Usuario extends BaseController
         // Salvar usuário
         if ($this->usuarioModel->save($user)) {
 
-            $this->session->setFlashdata('success', 'Usuário salva com sucesso');
+            $this->session->setFlashdata('success', 'Usuário salvo com sucesso');
 
             //Se o usuário já existe, pega o id, se não (caso de novo usuário), pega o ID gerado
             $userId = $user->id ?? $this->usuarioModel->getInsertID();
 
             $user = $this->usuarioModel->findById($userId);
 
-            $user->activate();
+            if (!empty($dadosUsuario['email']) && !empty($dadosUsuario['password'])) {
+
+                $user->activate();
+            }
 
             // Verifica se um grupo foi selecionado e adiciona o usuário ao grupo escolhido
             $group = $dadosUsuario['tipo_usuario'] ?? 'user'; // Padrão: usuário comum

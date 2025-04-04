@@ -53,7 +53,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">E-mail</label>
-                                <input name="email" type="email" class="form-control" value="<?= $professor->email ?? '' ?>" required>
+                                <input name="email" type="email" class="form-control" value="<?= $professor->email ?? '' ?>">
                             </div>
                             <?php if (!isset($professor)): ?>
                                 <div class="mb-3">

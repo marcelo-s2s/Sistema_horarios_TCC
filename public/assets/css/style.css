@@ -6,6 +6,13 @@
     padding: 10px;
 }
 
+#container-disciplinas.movendo {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+    border: 2px solid #ff4444;
+    background-color: rgba(255, 68, 68, 0.1);
+}
+
 #external-events h4 {
     font-size: 18px;
     font-weight: bold;

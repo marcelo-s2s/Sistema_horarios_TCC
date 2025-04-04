@@ -2,7 +2,12 @@
 
 <?= $this->section('css'); ?>
 
+<!-- CSS personalizado -->
 <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+
+<!--  Select2 -->
+<link rel="stylesheet" href="<?= base_url('assets/select2/css/select2.min.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/select2/css/select2-bootstrap-5-theme.min.css') ?>">
 
 <?= $this->endSection() ?>
 
@@ -49,9 +54,16 @@
                     </div>
                 </div>
 
-                <div class="card shadow">
+                <div id="container-disciplinas" class="card shadow">
+                    <div id="mensagem" hidden>
+                        <h4 class="text-center mb-3" style="margin-top: 16px;">Solte as disciplinas aqui para remover</h4>
+                    </div>
                     <div id="external-events" class="card-body">
                         <h4 class="text-center mb-3">Disciplinas</h4>
+
+                        <div class="mb-2">
+                            <input type="text" id="busca-disciplinas" class="form-control" placeholder="Buscar disciplina...">
+                        </div>
 
                         <div id="external-events-list">
                             <?php foreach ($disciplinas as $disciplina): ?>
@@ -59,6 +71,7 @@
                                     style="background-color: <?= $disciplina['cor'] ?>;"
                                     data-color="<?= $disciplina['cor'] ?>"
                                     id-disciplina="<?= $disciplina['id_disciplina'] ?>"
+                                    data-nome="<?= esc($disciplina['nome_disciplina']) ?>"
                                     data-duration="<?= $disciplina['ch_semanal'] ?>">
 
                                     <div class="card-body p-2 text-center">
@@ -152,12 +165,24 @@
 
 <?= $this->section('js'); ?>
 
+<!-- JavaScript personalizado -->
 <script src="<?= base_url('assets/js/javascript.js') ?>"></script>
+
+<!-- Script para buscar disciplinas -->
+<script src="<?= base_url('assets/js/buscar_disciplina.js') ?>"></script>
+
+<!-- FullCalendar -->
 <script src="<?= base_url('assets/vendor/fullcalendar/index.global.min.js') ?>"></script>
 <script src="<?= base_url('assets/vendor/fullcalendar/core/locales-all.global.min.js') ?>"></script>
 
+<!-- Select2 para aprimorar os campos de seleção -->
+<script src="<?= base_url('assets/select2/js/select2.min.js') ?>"></script>
+
+<!-- Configurações personalizadas do Select2-->
+<script src="<?= base_url('assets/select2/js/select2.js') ?>"></script>
+
 <script>
-    const isEditing = <?= json_encode($editando ?? false) ?>; // Define a variável no JS
+    const isEditing = <?= json_encode($editando ?? false) ?>;
     const idHorarioAula = <?= json_encode($idHorarioAula ?? false) ?>;
     const salas = <?= json_encode($salas) ?>;
     const professores = <?= json_encode($professores) ?>;
