@@ -10,7 +10,7 @@
 
 <div class="page-heading">
     <div class="page-title">
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h4>Horário de Sala</h4>
             </div>
@@ -33,7 +33,25 @@
     <section class="section">
         <div class="row">
 
-            <div class="col-md-10">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+
+                    <!-- Formulário com select -->
+                    <form class="d-flex align-items-center">
+                        <select class="form-select me-2 w-auto" id="sala" name="id_sala">
+                            <option></option>
+                            <?php foreach ($salas as $sala): ?>
+                                <option value="<?= $sala['id_sala'] ?>"><?= $sala['nome_sala'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </form>
+
+                    <!-- Botão exportar PDF -->
+                    <button class="btn btn-danger" id="exportarPDF">
+                        Exportar para PDF
+                    </button>
+                </div>
+
                 <div class="card shadow">
                     <div class="card-body">
                         <div id='calendar-wrap'>
@@ -42,33 +60,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
-
-                <div class="card shadow">
-                    <div class="card-body d-flex">
-                        <button type="button" id="exportarPDF" class="btn btn-primary mx-auto">Gerar PDF</button>
-                    </div>
-                </div>
-                
-                <div class="card shadow">
-                    <div class="card-body">
-                        <form id="tools-form">
-                            <div class="form-body">
-                                <div class="mb-3">
-                                    <label for="sala" class="form-label">Sala</label>
-                                    <select class="form-control" id="sala" name="id_sala">
-                                        <option value="" selected disabled>Selecione uma sala</option> <!-- Opção padrão -->
-                                        <?php foreach ($salas as $sala): ?>
-                                            <option value="<?= $sala['id_sala'] ?>"><?= $sala['nome_sala'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 </div>
@@ -80,5 +71,8 @@
 <script src="<?= base_url('assets/js/script_sala.js') ?>"></script>
 <script src="<?= base_url('assets/vendor/fullcalendar/index.global.min.js') ?>"></script>
 <script src="<?= base_url('assets/vendor/fullcalendar/core/locales-all.global.min.js') ?>"></script>
+
+<!-- textfit -->
+<script src="<?= base_url('assets/textfit/js/textFit.min.js') ?>"></script>
 
 <?= $this->endSection() ?>

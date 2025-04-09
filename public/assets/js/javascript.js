@@ -1,12 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  textFit(document.getElementsByClassName('fc-event card'), { maxFontSize: 20 }, { multiLine: true });
+
   // Observa mudanças na área do calendário
   const observer = new MutationObserver(() => ajustarTamanhoFonte());
   observer.observe(document.querySelector('#calendar'), { childList: true, subtree: true });
 
   const trashEl = document.getElementById('container-disciplinas');
   const disciplinas = document.getElementById("external-events");
-  const mensagem = document.getElementById("mensagem");
+  const areaRemocao = document.getElementById("area-remocao");
+
+  const scrollArea = document.getElementById("external-events-list");
+
+  scrollArea.addEventListener("wheel", function (e) {
+    if (e.deltaY !== 0) {
+      e.preventDefault();
+      scrollArea.scrollLeft += e.deltaY;
+    }
+  });
 
   const salaMap = {};
   salas.forEach(sala => {
@@ -109,15 +120,18 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function abrirLixeira() {
-    trashEl.classList.add('movendo');
-    disciplinas.setAttribute("hidden", "true");
-    mensagem.removeAttribute("hidden");
+
+    trashEl.classList.add("lixeira-ativa");
+    disciplinas.classList.add("d-none");
+    areaRemocao.classList.remove("d-none");
+
   }
 
   function fecharLixeira() {
-    trashEl.classList.remove('movendo');
-    disciplinas.removeAttribute("hidden");
-    mensagem.setAttribute("hidden", "true");
+
+    trashEl.classList.remove("lixeira-ativa");
+    disciplinas.classList.remove("d-none");
+    areaRemocao.classList.add("d-none");
   }
 
   // Interface do Full Calendar
@@ -216,36 +230,41 @@ document.addEventListener('DOMContentLoaded', function () {
         return { domNodes: [] };
       }
 
-      // Criar título com classe Bootstrap
+      // Criar o container principal
+      let containerEl = document.createElement('div');
+      containerEl.classList.add('event-container');
+
+      // Criar título
       let titleEl = document.createElement('div');
       titleEl.textContent = arg.event.title;
-      titleEl.classList.add('event-title'); // Classe para o título
+      titleEl.classList.add('event-title');
 
-      // Criar professor com classe Bootstrap
+      // Criar professor
       let professorEl = document.createElement('div');
-      let idProfessor = arg.event.extendedProps.professor; // O ID da professor
-      let nomeProfessor = professorMap[idProfessor]
-      // professorEl.textContent = 'Professor: ' + (nomeProfessor || 'Sem professor');
-
+      let idProfessor = arg.event.extendedProps.professor;
+      let nomeProfessor = professorMap[idProfessor];
       professorEl.innerHTML = `<span class="detail-label">Professor:</span> <span class="detail-value">${nomeProfessor || "Indefinido"}</span>`;
-      professorEl.classList.add('event-detail'); // Classe para detalhes
+      professorEl.classList.add('event-detail');
 
-
-      // Criar sala com classe Bootstrap
-
+      // Criar sala
       let salaEl = document.createElement('div');
-      let idSala = arg.event.extendedProps.sala; // O ID da sala
-      let nomeSala = salaMap[idSala]
-
+      let idSala = arg.event.extendedProps.sala;
+      let nomeSala = salaMap[idSala];
       salaEl.innerHTML = `<span class="detail-label">Sala:</span> <span class="detail-value">${nomeSala || "Indefinido"}</span>`;
-      salaEl.classList.add('event-detail'); // Classe para detalhes
+      salaEl.classList.add('event-detail');
 
       // Criar o elemento principal do evento
       let eventElement = document.createElement('a');
       eventElement.setAttribute('data-event-id', arg.event.id); // Atributo de identificação único
 
-      // Retornar os elementos como um array
-      return { domNodes: [titleEl, professorEl, salaEl, eventElement] };
+      // Adicionar tudo ao container
+      containerEl.appendChild(titleEl);
+      containerEl.appendChild(professorEl);
+      containerEl.appendChild(salaEl);
+      containerEl.appendChild(eventElement);
+
+      // Retornar a estrutura
+      return { domNodes: [containerEl] };
     },
 
     eventDragStart: async function (info) {
@@ -309,11 +328,9 @@ document.addEventListener('DOMContentLoaded', function () {
           event.remove();
         }
       });
-
-
     },
-
   });
+
   calendar.render();
 
   $(document).on('change.select2', '#professor', function () {
@@ -404,7 +421,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const posicaoInicialCalendario = (larguraOriginalPDF - larguraFinal) / 2;
 
       const elementoTurma = document.getElementById("turma");
-      const turma = elementoTurma.options[elementoTurma.selectedIndex].text;
+      let turma = "Nenhuma turma selecionada";
+
+      if (elementoTurma && elementoTurma.selectedIndex !== -1 && elementoTurma.value) {
+        turma = elementoTurma.options[elementoTurma.selectedIndex].text;
+      }
 
       const titulo = "Horário da turma: " + turma;
       const larguraTitulo = pdf.getTextWidth(titulo);
@@ -427,52 +448,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function ajustarTamanhoFonte() {
-    const eventos = document.querySelectorAll('.fc-event-main');
 
-    eventos.forEach(evento => {
-      const titulo = evento.querySelector('.event-title');
-      const detalhes = evento.querySelectorAll('.event-detail');
+    textFit(document.getElementsByClassName('event-container'));
 
-
-      const parentHeight = evento.clientHeight;
-      let tituloFontSize = parseInt(window.getComputedStyle(evento).fontSize);
-
-      while (evento.scrollHeight > parentHeight && tituloFontSize > 15) {
-        tituloFontSize--;
-        titulo.style.fontSize = `${tituloFontSize}px`;
-        titulo.style.marginBottom = "0";
-      }
-
-      while (evento.scrollHeight > parentHeight) {
-        let alterado = false;
-
-        detalhes.forEach(detalhe => {
-          let detalheFontSize = parseInt(window.getComputedStyle(detalhe).fontSize);
-          if (detalheFontSize > 15) {
-            detalheFontSize--;
-            detalhe.style.fontSize = `${detalheFontSize}px`;
-            evento.style.lineHeight = '1';
-            alterado = true;
-          }
-        });
-
-        if (!alterado) break;
-      }
-
-
-      //Se mesmo assim não couber, adiciona reticências no título
-      if (evento.scrollHeight > parentHeight) {
-        titulo.style.whiteSpace = "nowrap";
-        titulo.style.overflow = "hidden";
-        titulo.style.textOverflow = "ellipsis";
-
-      }
-    });
   }
 
   document.getElementById('exportarPDF').addEventListener('click', exportarCalendarioParaPDF);
 
-  document.getElementById('save-events').addEventListener('click', function () {
+  document.getElementById('salvarHorario').addEventListener('click', function () {
 
     // Obtém todos os eventos do calendário
     var events = calendar.getEvents();

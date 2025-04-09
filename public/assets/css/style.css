@@ -1,43 +1,73 @@
+.select2-selection__rendered {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+}
+
+.area-remocao {
+    padding: 1.5rem;
+    background-color: #dc3545;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.container-disciplinas {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Estado quando o container vira lixeira */
+.container-disciplinas.lixeira-ativa {
+    color: white;
+    transition: background-color 0.3s ease;
+    transform: scale(1.02);
+}
+
+/* Scroll horizontal só na área de disciplinas */
+.external-events {
+    overflow-x: auto;
+}
+
+/* Lista de disciplinas */
+.external-events-list {
+    min-width: 0;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Painel lateral com busca e botões */
+.painel-lateral {
+    width: 150px;
+}
+
+.event-container {
+    height: 100%;
+    width: 100%;
+}
+
 .borda {
     border: 2px solid blue;
 }
 
-#external-events {
-    padding: 10px;
-}
-
-#container-disciplinas.movendo {
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-    border: 2px solid #ff4444;
-    background-color: rgba(255, 68, 68, 0.1);
-}
-
-#external-events h4 {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
-}
-
-#external-events-list {
-    max-height: 500px;
-    overflow-y: auto;
-    padding-right: 5px;
-    /* Para evitar que a rolagem sobreponha os eventos */
+#external-events-list .fc-event:hover {
+    transform: scale(0.9);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 #external-events-list .fc-event {
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     cursor: grab;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 10px;
-}
-
-#external-events-list .fc-event:hover {
-    transform: scale(1.05);
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    height: 136px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 #tools-content {
@@ -48,6 +78,10 @@
 #tools-panel.expanded #tools-content {
     display: block;
     /* Mostra o conteúdo quando expandido */
+}
+
+#offcanvasDisciplina {
+    width: 250px;
 }
 
 .toggle-offcanvas {
@@ -61,13 +95,11 @@
 }
 
 .fc-event-main {
-
     text-align: center;
-    font-size: clamp(10px, 20px, 30px);
 }
 
 .event-title {
-    font-size: 1.2em;
+    font-size: 0.8em;
     font-weight: bold;
     margin-bottom: 5px;
 

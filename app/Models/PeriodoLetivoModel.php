@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class PeriodoLetivoModel extends Model
 {
-    protected $DBGroup = 'default'; // Define o banco de dados
+    protected $DBGroup          = 'default'; // Define o banco de dados
     protected $table            = 'periodo_letivo';
     protected $primaryKey       = 'periodo';
     protected $useAutoIncrement = false;
@@ -44,4 +44,11 @@ class PeriodoLetivoModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function verificarPeriodoAtivo()
+    {
+        $periodo = $this->where('ativo', 1)->first();
+
+        return $periodo ? $periodo['periodo'] : 'erro';
+    }
 }

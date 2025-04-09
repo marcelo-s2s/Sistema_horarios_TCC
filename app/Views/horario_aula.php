@@ -5,10 +5,6 @@
 <!-- CSS personalizado -->
 <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 
-<!--  Select2 -->
-<link rel="stylesheet" href="<?= base_url('assets/select2/css/select2.min.css') ?>">
-<link rel="stylesheet" href="<?= base_url('assets/select2/css/select2-bootstrap-5-theme.min.css') ?>">
-
 <?= $this->endSection() ?>
 
 <?= $this->section('content'); ?>
@@ -37,81 +33,12 @@
     </div>
     <section class="section">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card shadow">
                     <div class="card-body">
                         <div id='calendar-wrap'>
                             <div id='calendar'></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-
-                <div class="card shadow">
-                    <div class="card-body d-flex">
-                        <button type="button" id="exportarPDF" class="btn btn-primary mx-auto">Gerar PDF</button>
-                    </div>
-                </div>
-
-                <div id="container-disciplinas" class="card shadow">
-                    <div id="mensagem" hidden>
-                        <h4 class="text-center mb-3" style="margin-top: 16px;">Solte as disciplinas aqui para remover</h4>
-                    </div>
-                    <div id="external-events" class="card-body">
-                        <h4 class="text-center mb-3">Disciplinas</h4>
-
-                        <div class="mb-2">
-                            <input type="text" id="busca-disciplinas" class="form-control" placeholder="Buscar disciplina...">
-                        </div>
-
-                        <div id="external-events-list">
-                            <?php foreach ($disciplinas as $disciplina): ?>
-                                <div class="fc-event card text-white"
-                                    style="background-color: <?= $disciplina['cor'] ?>;"
-                                    data-color="<?= $disciplina['cor'] ?>"
-                                    id-disciplina="<?= $disciplina['id_disciplina'] ?>"
-                                    data-nome="<?= esc($disciplina['nome_disciplina']) ?>"
-                                    data-duration="<?= $disciplina['ch_semanal'] ?>">
-
-                                    <div class="card-body p-2 text-center">
-                                        <strong><?= $disciplina['nome_disciplina'] ?></strong>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card shadow">
-                    <div class="card-body">
-                        <form id="tools-form">
-                            <div class="form-body">
-                                <div class="mb-3">
-                                    <label for="turma" class="form-label">Turma</label>
-                                    <select class="form-control" id="turma" name="id_turma">
-                                        <?php foreach ($turmas as $turma): ?>
-                                            <option value="<?= $turma['codigo_turma'] ?>"><?= $turma['nome_turma'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="status" class="form-label">Status</label>
-                                    <select class="form-control" id="status" name="status">
-                                        <option value="ativo">Ativo</option>
-                                        <option value="inativo">Inativo</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="periodo_letivo" class="form-label">Período Letivo</label>
-                                    <input type="text" class="form-control" id="periodo_letivo" name="periodo_letivo" value="<?= esc($periodoAtivo['periodo'] ?? $periodoLetivo[0]) ?>" disabled>
-                                </div>
-                            </div>
-                            <div class="form-actions d-flex justify-content-end">
-                                <button type="button" id="save-events" class="btn btn-primary mt-3">Salvar Horários</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -157,8 +84,95 @@
             </div>
         </div>
 
-</div>
-</section>
+        <div class="modal fade text-left" id="modalSalvarHorario" tabindex="-1" role="dialog"
+            aria-labelledby="modalSalvarHorarioLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modalSalvarHorarioLabel">Salvar Horário de Aula</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal"
+                            aria-label="Fechar">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <form id="formSalvarHorario">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="turma" class="form-label">Turma</label>
+                                <select class="form-control" id="turma" name="id_turma">
+                                    <?php foreach ($turmas as $turma): ?>
+                                        <option value="<?= $turma['codigo_turma'] ?>"><?= $turma['nome_turma'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="ativo">Ativo</option>
+                                    <option value="inativo">Inativo</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="periodo_letivo" class="form-label">Período Letivo</label>
+                                <input type="text" class="form-control" id="periodo_letivo" name="periodo_letivo" value="<?= esc($periodoAtivo['periodo'] ?? $periodoLetivo[0]) ?>" disabled>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-light-secondar"
+                                data-bs-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Cancelar</span>
+                            </button>
+                            <button type="button" class="btn btn-primary ms-1" id="salvarHorario"
+                                data-bs-dismiss="modal">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Salvar</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="container-disciplinas" class="container-disciplinas card bg-white border-top shadow-sm py-2 px-3">
+            <div class="d-flex align-items-start external-events" id="external-events">
+
+                <!-- Lista de disciplinas com scroll horizontal -->
+                <div id="external-events-list" class="external-events-list d-flex flex-nowrap gap-2 flex-grow-1">
+                    <?php foreach ($disciplinas as $disciplina): ?>
+                        <div class="fc-event card text-white mb-0"
+                            style="background-color: <?= $disciplina['cor'] ?>; min-width: 150px;"
+                            data-color="<?= $disciplina['cor'] ?>"
+                            id-disciplina="<?= $disciplina['id_disciplina'] ?>"
+                            data-nome="<?= esc($disciplina['nome_disciplina']) ?>"
+                            data-duration="<?= $disciplina['ch_semanal'] ?>">
+                            <div class="card-body p-2 text-center">
+                                <strong><?= $disciplina['nome_disciplina'] ?></strong>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <!-- Área lateral fixa -->
+                <div class="painel-lateral d-flex flex-column gap-2 ms-3 flex-shrink-0">
+                    <input type="text" id="busca-disciplinas" class="form-control" placeholder="Buscar disciplina...">
+                    <button id="exportarPDF" class="btn btn-secondary w-100">Gerar PDF</button>
+                    <button id="abrirModel" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#modalSalvarHorario">
+                        Salvar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Área de exclusão visível apenas durante o drag -->
+            <div id="area-remocao" class="area-remocao text-center text-white d-none">
+                <strong>Solte a disciplina aqui para remover</strong>
+            </div>
+        </div>
+
+
+    </section>
 </div>
 
 <?= $this->endSection() ?>
@@ -175,11 +189,8 @@
 <script src="<?= base_url('assets/vendor/fullcalendar/index.global.min.js') ?>"></script>
 <script src="<?= base_url('assets/vendor/fullcalendar/core/locales-all.global.min.js') ?>"></script>
 
-<!-- Select2 para aprimorar os campos de seleção -->
-<script src="<?= base_url('assets/select2/js/select2.min.js') ?>"></script>
-
-<!-- Configurações personalizadas do Select2-->
-<script src="<?= base_url('assets/select2/js/select2.js') ?>"></script>
+<!-- textfit -->
+<script src="<?= base_url('assets/textfit/js/textFit.min.js') ?>"></script>
 
 <script>
     const isEditing = <?= json_encode($editando ?? false) ?>;

@@ -14,9 +14,6 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
 
-    <!-- DataTables -->
-    <!-- <link rel="stylesheet" href="<?= base_url('/assets/css/teste/dataTables.bootstrap.min.css') ?>"> -->
-
     <!-- Mazer -->
     <link rel="stylesheet" href="<?= base_url('assets/mazer/css/app.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/mazer/css/app-dark.css'); ?>">
@@ -29,6 +26,10 @@
 
     <!-- SweetAlert -->
     <link rel="stylesheet" href="<?= base_url('assets/mazer/css/sweetalert2.min.css') ?>">
+
+    <!--  Select2 -->
+    <link rel="stylesheet" href="<?= base_url('assets/select2/css/select2.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/select2/css/select2-bootstrap-5-theme.min.css') ?>">
 
 
     <?= $this->renderSection('css') ?>
@@ -47,11 +48,6 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-        }
-
-        /* Esconde o conteúdo até que a página carregue */
-        #main-content {
-            display: none;
         }
     </style>
 </head>
@@ -116,9 +112,8 @@
         // Aguarda o carregamento da página
         window.addEventListener("load", function() {
             setTimeout(() => {
-                document.getElementById("splash-screen").style.display = "none"; // Esconde splash
-                document.getElementById("main-content").style.display = "block"; // Mostra conteúdo
-            }, 1); // Pequeno delay para suavizar a transição
+                document.getElementById("splash-screen").style.display = "none";
+            }, 1);
         });
     </script>
 
@@ -154,6 +149,12 @@
     <!-- Certifique-se de incluir as bibliotecas no seu HTML -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Configurações personalizadas do Select2-->
+    <script src="<?= base_url('assets/select2/js/select2.js') ?>"></script>
+
+    <!-- Select2 para aprimorar os campos de seleção -->
+    <script src="<?= base_url('assets/select2/js/select2.min.js') ?>"></script>
 
     <?= $this->renderSection('js') ?>
 

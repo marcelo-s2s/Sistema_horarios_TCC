@@ -35,7 +35,6 @@ class HorarioAula extends BaseController
 
     public function buscarProfessor($idProfessor)
     {
-
         //retorna todos os professores
         $dadosProfessor = $this->usuarioModel->findById($idProfessor);
 
@@ -59,7 +58,9 @@ class HorarioAula extends BaseController
             $query->select('user_id')
                 ->from('auth_groups_users')
                 ->where('group', 'professor');
-        })->findAll();
+        })
+            ->orderBy('username', 'ASC') // Adicionando ordenação pelo nome
+            ->findAll();
 
         // Inicializa o array de usuários
         $professores = [];
@@ -78,21 +79,10 @@ class HorarioAula extends BaseController
         return $professores;
     }
 
-    public function verificarPeriodoAtivo()
-    {
-
-        // Busca o período letivo onde 'ativo' é 1
-        $periodo = $this->periodoLetivoModel->where('ativo', 1)->first();
-
-        // Se encontrar um período ativo, retorna a identificação (exemplo: "25.1")
-        return $periodo ? $periodo['periodo'] : 'erro';
-    }
-
-
     public function listaHorarioAula()
     {
         // Obtém o período letivo ativo
-        $periodoAtivo = $this->verificarPeriodoAtivo();
+        $periodoAtivo = $this->periodoLetivoModel->verificarPeriodoAtivo();
 
         // Obtém os dados de horários de aula e as informações relacionadas às turmas, eliminando duplicatas
         $data['horarios_aulas'] = $this->horarioAulaModel
@@ -108,10 +98,8 @@ class HorarioAula extends BaseController
 
     public function horarioAula()
     {
-        $data['disciplinas'] = $this->disciplinaModel->findAll();
-        $data['salas'] = $this->salaModel->findAll();
-
-        //retorna todos os professores
+        $data['disciplinas'] = $this->disciplinaModel->orderBy('nome_disciplina', 'ASC')->findAll();
+        $data['salas'] = $this->salaModel->orderBy('nome_sala', 'ASC')->findAll();
         $data['professores'] = $this->buscarProfessores();
 
         // Buscar o registro onde a coluna 'ativo' é 1 no periodoLetivoModel
@@ -121,9 +109,11 @@ class HorarioAula extends BaseController
         $data['turmas'] = $this->turmaModel->whereNotIn('codigo_turma', function ($query) {
             $query->select('codigo_turma')
                 ->from('horario_aula');
-        })->findAll();
+        })
+            ->orderBy('nome_turma', 'ASC') // Ordenação aplicada diretamente no banco
+            ->findAll();
 
-        if(!$data['turmas']){
+        if (!$data['turmas']) {
 
             $this->session->setFlashdata('error', 'Todas as turmas já possuem horario de aula');
             return redirect()->back();
@@ -134,8 +124,8 @@ class HorarioAula extends BaseController
 
     public function horarioAulaPublico()
     {
-        $data['disciplinas'] = $this->disciplinaModel->findAll();
-        $data['salas'] = $this->salaModel->findAll();
+        $data['disciplinas'] = $this->disciplinaModel->orderBy('nome_disciplina', 'ASC')->findAll();
+        $data['salas'] = $this->salaModel->orderBy('nome_sala', 'ASC')->findAll();
 
         //retorna todos os professores
         $data['professores'] = $this->buscarProfessores();
@@ -147,7 +137,9 @@ class HorarioAula extends BaseController
         $data['turmas'] = $this->turmaModel->whereIn('codigo_turma', function ($query) {
             $query->select('codigo_turma')
                 ->from('horario_aula');
-        })->findAll();
+        })
+            ->orderBy('nome_turma', 'ASC') // Ordenação aplicada diretamente no banco
+            ->findAll();
 
         return view('horario_aula_publico', $data);
     }
@@ -162,15 +154,15 @@ class HorarioAula extends BaseController
 
     public function horarioSala()
     {
-        $data['salas'] = $this->salaModel->findAll();
+        $data['salas'] = $this->salaModel->orderBy('nome_sala', 'ASC')->findAll();
 
         return view('horario_sala', $data);
     }
 
     public function editarHorarioAula($codigoTurma)
     {
-        $data['disciplinas'] = $this->disciplinaModel->findAll();
-        $data['salas'] = $this->salaModel->findAll();
+        $data['disciplinas'] = $this->disciplinaModel->orderBy('nome_disciplina', 'ASC')->findAll();
+        $data['salas'] = $this->salaModel->orderBy('nome_sala', 'ASC')->findAll();
         $data['turmas'] = $this->turmaModel->where('codigo_turma', $codigoTurma)->findAll();
         $data['professores'] = $this->buscarProfessores();
         $data['editando'] = $data['turmas'][0]['codigo_turma'];
@@ -239,7 +231,7 @@ class HorarioAula extends BaseController
         // Pesquisa os horários da turma apenas no período letivo ativo
         $pesquisaHorarios = $this->horarioAulaModel
             ->where('codigo_turma', $codigoTurma)
-            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->where('periodo_letivo', $this->periodoLetivoModel->verificarPeriodoAtivo())
             ->findAll();
 
         $horarios = [];
@@ -277,7 +269,7 @@ class HorarioAula extends BaseController
     {
         $pesquisaHorarios = $this->horarioAulaModel
             ->where('professor', $idProfessor)
-            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->where('periodo_letivo', $this->periodoLetivoModel->verificarPeriodoAtivo())
             ->findAll();
 
         $horarios = [];
@@ -311,7 +303,7 @@ class HorarioAula extends BaseController
     {
         $pesquisaHorarios = $this->horarioAulaModel
             ->where('id_sala', $idSala)
-            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->where('periodo_letivo', $this->periodoLetivoModel->verificarPeriodoAtivo())
             ->findAll();
 
         $horarios = [];
@@ -349,7 +341,7 @@ class HorarioAula extends BaseController
 
         // Consulta o banco para pegar os horários ocupados
         $horariosOcupados = $this->horarioAulaModel
-            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->where('periodo_letivo', $this->periodoLetivoModel->verificarPeriodoAtivo())
             ->where('id_horario_aula !=', $evento['idHorarioAula'])
             ->groupStart()
             ->where('id_sala', $evento['id_sala'])
@@ -368,7 +360,7 @@ class HorarioAula extends BaseController
         $conflitoProfessor = $this->horarioAulaModel
             ->where('professor', $evento['professor'])
             ->where('dia_semana', $evento['dia_semana'])
-            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->where('periodo_letivo', $this->periodoLetivoModel->verificarPeriodoAtivo())
             ->where('id_horario_aula !=', $evento['id_horario_aula'])
             ->groupStart() // Agrupa as condições para verificar sobreposição de horário
             ->where('horario_inicio <', $evento['horario_fim'])
@@ -388,7 +380,7 @@ class HorarioAula extends BaseController
         $conflitoSala = $this->horarioAulaModel
             ->where('id_sala', $evento['id_sala'])
             ->where('dia_semana', $evento['dia_semana'])
-            ->where('periodo_letivo', $this->verificarPeriodoAtivo())
+            ->where('periodo_letivo', $this->periodoLetivoModel->verificarPeriodoAtivo())
             ->where('id_horario_aula !=', $evento['id_horario_aula'])
             ->groupStart() // Agrupa as condições para verificar sobreposição de horário
             ->where('horario_inicio <', $evento['horario_fim'])

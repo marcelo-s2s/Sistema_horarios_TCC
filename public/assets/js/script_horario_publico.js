@@ -14,18 +14,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var eventsUrl = '/horario-aula/carregar-horarios/default';
 
     // Listener para mudanças no campo turma
-    document.getElementById('turma').addEventListener('change', function () {
+    $(document).on('change.select2', '#turma', function () {
 
         const turma = this.value; // Novo valor da turma
         eventsUrl = '/horario-aula/carregar-horarios/' + turma; // Atualiza a URL
         calendar.refetchEvents(); // Recarrega os eventos do calendário
-
-        // Remove a opção "Selecione um turma" após a mudança
-        const defaultOption = this.querySelector('option[value=""]');
-        if (defaultOption) {
-            defaultOption.remove();
-        }
-
     });
 
     function exportarCalendarioParaPDF() {
@@ -58,10 +51,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const posicaoInicialCalendario = (larguraOriginalPDF - larguraFinal) / 2;
 
-            const elementoProfessor = document.getElementById("professor");
-            const professor = elementoProfessor.options[elementoProfessor.selectedIndex].text;
+            const elementoTurma = document.getElementById("turma");
+            let turma = "Nenhuma turma selecionada";
 
-            const titulo = "Horário do professor: " + professor;
+            if (elementoTurma && elementoTurma.selectedIndex !== -1 && elementoTurma.value) {
+                turma = elementoTurma.options[elementoTurma.selectedIndex].text;
+            }
+
+            const titulo = "Horário da turma: " + turma;
             const larguraTitulo = pdf.getTextWidth(titulo);
             const posicaoInicialTitulo = (larguraOriginalPDF - larguraTitulo) / 2;
 
@@ -77,51 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pdf.addImage(imagemDados, 'PNG', posicaoInicialCalendario, margem + alturaTitulo, larguraFinal, alturaFinal);
 
             // Salva o PDF
-            pdf.save(professor + '.pdf');
-        });
-    }
-
-    function ajustarTamanhoFonte() {
-        const eventos = document.querySelectorAll('.fc-event-main');
-
-        eventos.forEach(evento => {
-            const titulo = evento.querySelector('.event-title');
-            const detalhes = evento.querySelectorAll('.event-detail');
-
-
-            const parentHeight = evento.clientHeight;
-            let tituloFontSize = parseInt(window.getComputedStyle(evento).fontSize);
-
-            while (evento.scrollHeight > parentHeight && tituloFontSize > 15) {
-                tituloFontSize--;
-                titulo.style.fontSize = `${tituloFontSize}px`;
-                titulo.style.marginBottom = "0";
-            }
-
-            while (evento.scrollHeight > parentHeight) {
-                let alterado = false;
-
-                detalhes.forEach(detalhe => {
-                    let detalheFontSize = parseInt(window.getComputedStyle(detalhe).fontSize);
-                    if (detalheFontSize > 15) {
-                        detalheFontSize--;
-                        detalhe.style.fontSize = `${detalheFontSize}px`;
-                        evento.style.lineHeight = '1';
-                        alterado = true;
-                    }
-                });
-
-                if (!alterado) break;
-            }
-
-
-            //Se mesmo assim não couber, adiciona reticências no título
-            if (evento.scrollHeight > parentHeight) {
-                titulo.style.whiteSpace = "nowrap";
-                titulo.style.overflow = "hidden";
-                titulo.style.textOverflow = "ellipsis";
-
-            }
+            pdf.save(turma + '.pdf');
         });
     }
 
@@ -134,15 +87,13 @@ document.addEventListener('DOMContentLoaded', function () {
         duration: { days: 6 },
         initialDate: '2024-11-18',
         locale: 'pt-br',
-        slotMinTime: '01:00:00', // Ajuste conforme sua preferência para começar em 1
-        slotMaxTime: '18:00:00',  // Ajuste para terminar no horário desejado
+        slotMinTime: '01:00:00',
+        slotMaxTime: '18:00:00',
         dayHeaderFormat: { weekday: 'long' },
         slotDuration: '01:00:00',
         allDaySlot: false,
         expandRows: true,
         headerToolbar: false,
-        editable: true,
-        droppable: true, // this allows things to be dropped onto the calendar
         events: function (info, successCallback, failureCallback) {
             // Função para carregar eventos dinamicamente
             fetch(eventsUrl)
@@ -154,39 +105,48 @@ document.addEventListener('DOMContentLoaded', function () {
         eventDidMount: function (info) {
             // Adiciona um tooltip ao evento
             info.el.setAttribute('title', info.event.title);
-            ajustarTamanhoFonte();
         },
 
         eventContent: function (arg) {
 
-            // Criar título com classe Bootstrap
+            // Criar o container principal
+            let containerEl = document.createElement('div');
+            containerEl.classList.add('event-container');
+
+            // Criar título
             let titleEl = document.createElement('div');
             titleEl.textContent = arg.event.title;
-            titleEl.classList.add('event-title'); // Classe para o título
+            titleEl.classList.add('event-title');
 
-            // Criar professor com classe Bootstrap
+            // Criar professor
             let professorEl = document.createElement('div');
-            let idProfessor = arg.event.extendedProps.professor; // O ID da professor
-            let nomeProfessor = professorMap[idProfessor]
-            // professorEl.textContent = 'Professor: ' + (nomeProfessor || 'Sem professor');
-
+            let idProfessor = arg.event.extendedProps.professor;
+            let nomeProfessor = professorMap[idProfessor];
             professorEl.innerHTML = `<span class="detail-label">Professor:</span> <span class="detail-value">${nomeProfessor || "Indefinido"}</span>`;
-            professorEl.classList.add('event-detail'); // Classe para detalhes
+            professorEl.classList.add('event-detail');
 
-            // Criar sala com classe Bootstrap
+            // Criar sala
             let salaEl = document.createElement('div');
-            let idSala = arg.event.extendedProps.sala; // O ID da sala
-            let nomeSala = salaMap[idSala]
-
+            let idSala = arg.event.extendedProps.sala;
+            let nomeSala = salaMap[idSala];
             salaEl.innerHTML = `<span class="detail-label">Sala:</span> <span class="detail-value">${nomeSala || "Indefinido"}</span>`;
-            salaEl.classList.add('event-detail'); // Classe para detalhes
+            salaEl.classList.add('event-detail');
 
-            // Retornar os elementos como um array
-            return { domNodes: [titleEl, professorEl, salaEl] };
+            // Adicionar tudo ao container
+            containerEl.appendChild(titleEl);
+            containerEl.appendChild(professorEl);
+            containerEl.appendChild(salaEl);
+
+            setTimeout(() => {
+                textFit(containerEl, {
+                    multiLine: true
+                });
+            }, 0);
+
+            // Retornar a estrutura
+            return { domNodes: [containerEl] };
         },
-
-
     });
-    calendar.render();
 
+    calendar.render();
 });

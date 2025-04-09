@@ -24,8 +24,14 @@
                 <li class="sidebar-title">Menu</li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?= url_to('horarioAulaPublico') ?>">
-                        <i class="fa-solid fa-people-roof fa-lg"></i>
+                        <i class="fa-solid fa-calendar-days fa-lg"></i>
                         <span>Horário de Aula</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="<?= url_to('horarioSala') ?>">
+                        <i class="fa-solid fa-people-roof fa-lg"></i>
+                        <span>Horário de Sala</span>
                     </a>
                 </li>
             </ul>
